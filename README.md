@@ -1,4 +1,6 @@
-#Controle da Reserva de Armamento.
+#Controle da Reserva de Armamento
+
+[![Build Status](https://travis-ci.org/controlereservaufba/controlereservaufba.svg?branch=master)](https://travis-ci.org/controlereservaufba/controlereservaufba)
 
  - [Apresentação](#apresentacao)
  - [Objetivos](#objetivos)
