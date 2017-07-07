@@ -24,13 +24,25 @@ body {
     border-width: 0 0 1px;
 }
 
-.navbar-default .navbar-nav #user-profile {
+.navbar-inverse .navbar-nav {
+
+    background: #181515 !important;
+    color: #181515 !important;
+}
+
+.navbar-inverse .navbar-nav #user-profile {
     height: 50px;
     padding-top: 15px;
     padding-left: 58px;
+
 }
 
-.navbar-default .navbar-nav #user-profile img {
+.navbar-inverse navbar-fixed-top{
+      background: #181515 !important;
+    color: #181515 !important;  
+}
+
+.navbar-inverse .navbar-nav #user-profile img {
     height: 45px;
     width: 45px;
     position: absolute;
@@ -72,7 +84,7 @@ body {
     height: 100%;
     margin-left: -225px;
     overflow-y: auto;
-    background: #f8f8f8;
+    background: #181515;
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
     -o-transition: all .5s ease;
@@ -97,12 +109,13 @@ body {
 #sidebar-wrapper .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #428bca;
+   /* color: #428bca;*/
+    color: #181515;
 }
 
 .sidebar-nav li:first-child a {
-    background: #92bce0 !important;
-    color: #fff !important;
+    background: #181515 !important;
+    color: #181515!important;
 }
 
 #sidebar-wrapper .sidebar-nav li a .sidebar-icon {
@@ -157,41 +170,26 @@ body {
 }
 
 .sidebar-nav li:first-child a {
-    background: #92bce0 !important;
+    background: #26c148 !important;
     color: #fff !important;
 }
 
 .sidebar-nav li:nth-child(2) a {
-    background: #6aa3d5 !important;
+    background: #27b847 !important;
     color: #fff !important;
 }
 
 .sidebar-nav li:nth-child(3) a {
-    background: #428bca !important;
+    background: #20a13c !important;
     color: #fff !important;
 }
 
 .sidebar-nav li:nth-child(4) a {
-    background: #3071a9 !important;
+    background: #16852e !important;
     color: #fff !important;
 }
 
 .sidebar-nav li:nth-child(5) a {
-    background: #245682 !important;
+    background: #137428 !important;
     color: #fff !important;
-}
-
-.login-page
-{
-    background-image: url('http://grupoconviva.com/wp-content/uploads/2015/10/background.jpg');
-    background-repeat: no-repeat;
-    background-size:100%;
-    bottom: 0;
-    color: black;
-    left: 0;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 0;
-
 }

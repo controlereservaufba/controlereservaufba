@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Controle Resereva </title>
+    <title>Controle da Reserva</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +13,7 @@
 <body>
     <div id="navbar-wrapper">
         <header>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
@@ -20,7 +22,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">CONTROLE RESERVA</a>
+                        <a class="navbar-brand" href="#">CONTROLE DA RESERVA</a>
                     </div>
                     <div id="navbar-collapse" class="collapse navbar-collapse">
                         <form class="navbar-form navbar-left" role="search">
@@ -64,44 +66,66 @@
             <aside id="sidebar">
                 <ul id="sidemenu" class="sidebar-nav">
                     <li>
-                        <a href="/admin">
+                        <a href="#">
                             <span class="sidebar-icon"><i class="fa fa-dashboard"></i></span>
-                            <span class="sidebar-title">Dashboard</span>
+                            <span class="sidebar-title">Home</span>
                         </a>
                     </li>
                     <li>
                         <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
                             <span class="sidebar-icon"><i class="fa fa-users"></i></span>
-                            <span class="sidebar-title">Management</span>
+                            <span class="sidebar-title">Usuários</span>
                             <b class="caret"></b>
                         </a>
                         <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Users</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Roles</a></li>
+                            <li><a href="#"><i class="fa fa-caret-right"></i>Perfis</a></li>
                         </ul>
                     </li>
                     <li>
                         <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">
                             <span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
-                            <span class="sidebar-title">Blog</span>
+                            <span class="sidebar-title">Cadastros</span>
                             <b class="caret"></b>
                         </a>
                         <ul id="submenu-3" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Posts</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Comments</a></li>
+                             <li><a href="/militars"><i class="fa fa-caret-right"></i>Militar</a></li>
+                            <li><a href="/municaos"><i class="fa fa-caret-right"></i>Munição</a></li>
+                            <li><a href="/acessorios"><i class="fa fa-caret-right"></i>Acessório</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/militars">
-                            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-                            <span class="sidebar-title">Militar</span>
+                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-4">
+                            <span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
+                            <span class="sidebar-title">Reserva</span>
+                            <b class="caret"></b>
                         </a>
+                        <ul id="submenu-4" class="panel-collapse collapse panel-switch" role="menu">
+                             <li><a href="/militars"><i class="fa fa-caret-right"></i>Controle</a></li>
+                        </ul>
                     </li>
+                    <li>
+                       
+                          
+                          <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-5">
+                            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+                            <span class="sidebar-title">Links Utéis</span>
+                            <b class="caret"></b>
+                          </a>
+                        <ul id="submenu-5" class="panel-collapse collapse panel-switch" role="menu">
+                             <li><a href="/"><i class="fa fa-caret-git-hub"></i>GitHub</a></li>
+                        </ul>
+                    </li>
+                    <!--<li>
+                        <a href="#">
+                            <span class="sidebar-icon"><i class="fa fa-terminal"></i></span>
+                            <span class="sidebar-title">Links Utéis</span>
+                        </a>
+                    </li>-->
                 </ul>
             </aside>            
         </div>
         <main id="page-content-wrapper" role="main">
-         <%= yield %>
+          <%= yield %>
         </main>
     </div> 
 </body>
