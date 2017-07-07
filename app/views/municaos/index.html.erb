@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Municaos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Calibre</th>
+      <th>Descricao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @municaos.each do |municao| %>
+      <tr>
+        <td><%= municao.calibre %></td>
+        <td><%= municao.descricao %></td>
+        <td><%= link_to 'Show', municao %></td>
+        <td><%= link_to 'Edit', edit_municao_path(municao) %></td>
+        <td><%= link_to 'Destroy', municao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Municao', new_municao_path %>

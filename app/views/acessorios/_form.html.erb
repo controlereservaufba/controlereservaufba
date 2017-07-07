@@ -1,0 +1,22 @@
+<%= form_with(model: acessorio, local: true) do |form| %>
+  <% if acessorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(acessorio.errors.count, "error") %> prohibited this acessorio from being saved:</h2>
+
+      <ul>
+      <% acessorio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :descricao %>
+    <%= form.text_field :descricao, id: :acessorio_descricao %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

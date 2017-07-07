@@ -1,0 +1,2 @@
+class Municao < ApplicationRecord
+end
