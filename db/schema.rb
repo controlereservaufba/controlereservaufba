@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170707144151) do
+ActiveRecord::Schema.define(version: 20170708192657) do
 
   create_table "acessorios", force: :cascade do |t|
     t.string "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kenia", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kenia1s", force: :cascade do |t|
+    t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,6 +41,13 @@ ActiveRecord::Schema.define(version: 20170707144151) do
   create_table "municaos", force: :cascade do |t|
     t.string "calibre"
     t.string "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "testes", force: :cascade do |t|
+    t.string "nome"
+    t.integer "municao_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

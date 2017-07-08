@@ -1,2 +1,0 @@
-class Militar < ApplicationRecord
-end

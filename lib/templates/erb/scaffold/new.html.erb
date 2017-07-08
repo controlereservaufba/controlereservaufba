@@ -1,0 +1,7 @@
+<div id="main" class="container-fluid">
+<h4 class="page-header">Novo <%= singular_table_name.titleize %></h4>
+
+<%%= render 'form', <%= singular_table_name %>: @<%= singular_table_name %> %>
+
+ <a class="btn btn-default btn-sm"  <%%= link_to 'Voltar', <%= index_helper %>_path %></a>
+</div>

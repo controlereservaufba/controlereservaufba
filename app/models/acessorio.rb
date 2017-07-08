@@ -1,2 +1,0 @@
-class Acessorio < ApplicationRecord
-end

@@ -1,0 +1,35 @@
+<%%= form_with(model: <%= singular_table_name %>, local: true) do |form| %>
+  <%% if <%= singular_table_name %>.errors.any? %>
+    <div id="error_explanation">
+      <h2><%%= pluralize(<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h2>
+
+      <ul>
+      <%% <%= singular_table_name %>.errors.full_messages.each do |message| %>
+        <li><%%= message %></li>
+      <%% end %>
+      </ul>
+    </div>
+  <%% end %>
+  
+<table>
+<% attributes.each do |attribute| -%>
+<% if attribute.password_digest? -%>
+    <%%= form.label :password %>
+    <%%= form.password_field :password, id: :<%= field_id(:password) %> %>
+  
+    <%%= form.label :password_confirmation %>
+    <%%= form.password_field :password_confirmation, id: :<%= field_id(:password_confirmation) %> %>
+ 
+<% else -%>
+    <tr>
+     <td><%%= form.label :<%= attribute.column_name %> %></td>
+     <td class="col-md-9" width="100" ><%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %> %></td>
+    <tr><td><br></td></tr>
+<% end -%>
+<% end -%>
+</table>
+  
+  <div class="actions">
+    <%%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<%% end %>

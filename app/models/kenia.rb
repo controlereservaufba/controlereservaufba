@@ -1,0 +1,2 @@
+class Kenia < ApplicationRecord
+end

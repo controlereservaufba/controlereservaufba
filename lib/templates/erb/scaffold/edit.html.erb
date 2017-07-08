@@ -1,0 +1,7 @@
+<div id="main" class="container-fluid">
+<h4 class="page-header">Editar <%= singular_table_name.titleize %></h4>
+
+<%%= render 'form', <%= singular_table_name %>: @<%= singular_table_name %> %>
+
+<%%= link_to 'Voltar', <%= index_helper %>_path, class: 'btn btn-default btn-sm' %> 
+</div>
