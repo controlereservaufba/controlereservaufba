@@ -1,0 +1,45 @@
+ <p id="notice"><%= notice %></p>
+
+ <h4 class="page-header">Militars</h4>
+
+ <div id="list" class="row">
+ <div class="table-responsive col-md-12">
+ <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
+  <thead>
+    <tr>
+             <th>Nome</th>
+             <th>Nome guerra</th>
+             <th>Posto</th>
+            <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @militars.each do |militar| %>
+      <tr>
+                    <td><%= militar.nome %></td>
+                    <td><%= militar.nome_guerra %></td>
+                    <td><%= militar.posto %></td>
+                <td class="actions">
+         <%= link_to 'Visualizar', militar,  class: 'btn btn-success btn-xs'%>
+         <%= link_to 'Editar', edit_militar_path(militar), class: 'btn btn-warning btn-xs' %>
+         <%= link_to 'Deletar', militar, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- Paginação -->
+ <div class="text-center">
+  <div class="pagination">
+    <table>
+     <tr>
+       <td><%= paginate @militars %></td>
+     <tr>
+    </table>
+  </div>
+ </div>
+<!--Fim Paginação-->
+</div>
+</div>
+<%= link_to 'Novo Militar', new_militar_path, class: 'btn btn-success btn-sm' %>

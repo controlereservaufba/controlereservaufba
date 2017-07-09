@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<div id="main" class="container-fluid">
+<h4 class="page-header">Visualizar</h4>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @militar.nome %>
+</p>
+
+<p>
+  <strong>Nome guerra:</strong>
+  <%= @militar.nome_guerra %>
+</p>
+
+<p>
+  <strong>Posto:</strong>
+  <%= @militar.posto %>
+</p>
+
+</div>
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', militars_path %> </a>
