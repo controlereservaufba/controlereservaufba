@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709002852) do
+ActiveRecord::Schema.define(version: 20170710223853) do
+
+  create_table "acessorios", force: :cascade do |t|
+    t.string "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "militars", force: :cascade do |t|
     t.string "nome"

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
 
   devise_for :users
   resources :application
@@ -10,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :user
   root 'user#index'
+  
+  resources :acessorios
+  root 'acessorios#index'
   
   devise_scope :user do
     get '/login' => 'devise/sessions#new'

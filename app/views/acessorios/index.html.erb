@@ -1,0 +1,41 @@
+ <p id="notice"><%= notice %></p>
+
+ <h4 class="page-header">Acessorios</h4>
+
+ <div id="list" class="row">
+ <div class="table-responsive col-md-12">
+ <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
+  <thead>
+    <tr>
+       <th>Descrição</th>
+       <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @acessorios.each do |acessorio| %>
+      <tr>
+                    <td><%= acessorio.descricao %></td>
+                <td class="actions">
+         <%= link_to 'Visualizar', acessorio,  class: 'btn btn-success btn-xs'%>
+         <%= link_to 'Editar', edit_acessorio_path(acessorio), class: 'btn btn-warning btn-xs' %>
+         <%= link_to 'Deletar', acessorio, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- Paginação -->
+ <div class="text-center">
+  <div class="pagination">
+    <table>
+     <tr>
+       <td><%= paginate @acessorios %></td>
+     <tr>
+    </table>
+  </div>
+ </div>
+<!--Fim Paginação-->
+</div>
+</div>
+<%= link_to 'Novo Acessorio', new_acessorio_path, class: 'btn btn-success btn-sm' %>

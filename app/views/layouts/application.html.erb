@@ -23,34 +23,30 @@
                         <a class="navbar-brand" href="#">CONTROLE DA RESERVA</a>
                     </div>
                     <div id="navbar-collapse" class="collapse navbar-collapse">
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                </span>
-                            </div>
-                        </form>
+                        
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
                                 <a id="flag" href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="http://www.country-dialing-codes.net/img/png-country-4x2-fancy-res-1280x960/gb.png" alt="English" width="28px" height="18px">
+                                    <img src="http://www.country-dialing-codes.net/img/png-country-4x2-flat-res-640x480/br.png" alt="Brasil" width="28px" height="18px">
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-flag" role="menu">
+                                <!--<ul class="dropdown-menu dropdown-menu-flag" role="menu">
                                     <li>
                                         <a href="#">
-                                            <img src="http://www.country-dialing-codes.net/img/png-country-4x2-flat-res-640x480/gf.png" alt="Français" width="28px" height="18px">
+                                            <img src="http://www.country-dialing-codes.net/img/png-country-4x2-flat-res-640x480/br.png" alt="Français" width="28px" height="18px">
                                             <span>Français</span>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul>-->
                             </li>
                             <li class="dropdown">
-                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="http://lorempixel.com/100/100/people/9/" class="img-responsive img-thumbnail img-circle"> Username</a>
+                                 
+                                 <% if user_signed_in? %>
+                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_960_720.png" class="img-responsive img-thumbnail img-circle"><%= current_user.email %></a>
                                 <ul class="dropdown-menu dropdown-block" role="menu">
-                                    <li><a href="#">Profil edition</a></li>
-                                    <li><a href="#">Admin</a></li>
-                                    <li><a href="#">Logout</a></li>
+                                    
+                                    <li><a href="/perfil">Editar Perfil</a></li>
+                                    <li><a href="/logout">Sair</a></li>
+                                    <%end%>
                                 </ul>
                             </li>
                         </ul>
@@ -76,7 +72,7 @@
                             <b class="caret"></b>
                         </a>
                         <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="/user"><i class="fa fa-caret-right"></i>Perfis</a></li>
+                            <li><a href="/user"><i class="fa fa-user"></i>Perfis</a></li>
                         </ul>
                     </li>
                     <li>
@@ -86,41 +82,33 @@
                             <b class="caret"></b>
                         </a>
                         <ul id="submenu-3" class="panel-collapse collapse panel-switch" role="menu">
-                             <li><a href="/militars"><i class="fa fa-caret-right"></i>Militar</a></li>
-                            <li><a href="/"><i class="fa fa-caret-right"></i>Munição</a></li>
-                            <li><a href="/"><i class="fa fa-caret-right"></i>Acessório</a></li>
+                             <li><a href="/militars"><i class="fa fa-user-plus "></i>Militar</a></li>
+                            <li><a href="/"><i class="fa fa-shield"></i>Munição</a></li>
+                            <li><a href="/acessorios"><i class="fa fa-caret-right"></i>Acessório</a></li>
                     
                         </ul>
                     </li>
                     <li>
                         <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-4">
-                            <span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
+                            <span class="sidebar-icon"><i class="fa fa-check-square-o "></i></span>
                             <span class="sidebar-title">Reserva</span>
                             <b class="caret"></b>
                         </a>
                         <ul id="submenu-4" class="panel-collapse collapse panel-switch" role="menu">
-                             <li><a href="/militars"><i class="fa fa-caret-right"></i>Controle</a></li>
+                             <li><a href="/militars"><i class="fa fa--right"></i>Controle</a></li>
                              <li><a href="/"><i class="fa fa-caret-right"></i>Cautela</a></li>
                         </ul>
                     </li>
                     <li>
-                       
-                          
                           <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-5">
-                            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+                            <span class="sidebar-icon"><i class="fa fa-link"></i></span>
                             <span class="sidebar-title">Links Utéis</span>
                             <b class="caret"></b>
                           </a>
                         <ul id="submenu-5" class="panel-collapse collapse panel-switch" role="menu">
-                             <li><a href="/"><i class="fa fa-caret-git-hub"></i>GitHub</a></li>
+                             <li><a href="/"><i class="fa fa-github"></i>GitHub</a></li>
                         </ul>
                     </li>
-                    <!--<li>
-                        <a href="#">
-                            <span class="sidebar-icon"><i class="fa fa-terminal"></i></span>
-                            <span class="sidebar-title">Links Utéis</span>
-                        </a>
-                    </li>-->
                 </ul>
             </aside>            
         </div>

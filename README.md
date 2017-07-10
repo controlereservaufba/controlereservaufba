@@ -25,7 +25,8 @@
 ## Colaboradores 
  - Kênia Guimarães
  - Luis Oscar Resende
--  José Luis
+ - José Luis
+ - Rafael Barbosa
  
 ## Dicas
  - rails server -b $IP -p $PORT

@@ -180,3 +180,22 @@ body {
     background: #137428 !important;
     color: #fff !important;
 }
+
+.login-page
+{
+    /*background-image: url('https://1.bp.blogspot.com/-qKOc6KObrm0/WJ8V4dvJlOI/AAAAAAAAC-c/jYDe04rTIsAUbvqMvdF0_C33SQ4ryuPcgCLcB/s640/Ex%25C3%25A9rcito-Brasileiro.jpg');
+     background-image: url('https://cdn.defesaaereanaval.com.br/wp-content/uploads/EB.jpg');*/
+
+    background-image: url('https://concursadoeaprovado.files.wordpress.com/2010/06/topo.jpg');
+   
+    background-repeat: no-repeat;
+    background-size:100%;
+    bottom: 0;
+    color: black;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+
+}
