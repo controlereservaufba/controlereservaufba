@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Controle da Reserva</title>
+    <title>Controle da Reserva Ufba</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -41,7 +41,7 @@
                             <li class="dropdown">
                                  
                                  <% if user_signed_in? %>
-                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_960_720.png" class="img-responsive img-thumbnail img-circle"><%= current_user.email %></a>
+                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_960_720.png" class="img-responsive img-thumbnail img-circle"><%= current_user.username %></a>
                                 <ul class="dropdown-menu dropdown-block" role="menu">
                                     
                                     <li><a href="/perfil">Editar Perfil</a></li>
@@ -61,7 +61,7 @@
                 <ul id="sidemenu" class="sidebar-nav">
                     <li>
                         <a href="#">
-                            <span class="sidebar-icon"><i class="fa fa-dashboard"></i></span>
+                            <span class="sidebar-icon"><i class="fa fa-home"></i></span>
                             <span class="sidebar-title">Home</span>
                         </a>
                     </li>
@@ -77,14 +77,14 @@
                     </li>
                     <li>
                         <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">
-                            <span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
+                            <span class="sidebar-icon"><i class="fa fa-list"></i></span>
                             <span class="sidebar-title">Cadastros</span>
                             <b class="caret"></b>
                         </a>
                         <ul id="submenu-3" class="panel-collapse collapse panel-switch" role="menu">
                              <li><a href="/militars"><i class="fa fa-user-plus "></i>Militar</a></li>
                             <li><a href="/"><i class="fa fa-shield"></i>Munição</a></li>
-                            <li><a href="/acessorios"><i class="fa fa-caret-right"></i>Acessório</a></li>
+                            <li><a href="/acessorios"><i class="fa fa-tags"></i>Acessório</a></li>
                     
                         </ul>
                     </li>
@@ -95,8 +95,8 @@
                             <b class="caret"></b>
                         </a>
                         <ul id="submenu-4" class="panel-collapse collapse panel-switch" role="menu">
-                             <li><a href="/militars"><i class="fa fa--right"></i>Controle</a></li>
-                             <li><a href="/"><i class="fa fa-caret-right"></i>Cautela</a></li>
+                             <li><a href="/militars"><i class="fa fa-pencil-square-o"></i>Controle</a></li>
+                             <li><a href="/"><i class="fa fa-male"></i>Cautela</a></li>
                         </ul>
                     </li>
                     <li>
