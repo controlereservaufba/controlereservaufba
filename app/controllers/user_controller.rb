@@ -52,7 +52,7 @@ class UserController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-     params.require(:user).permit(:email,:nome,:pesq,:admin,:matricula)
+     params.require(:user).permit(:email,:nome,:admin,:admin_reserva,:username)
     end
      
 
