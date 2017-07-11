@@ -1,0 +1,2 @@
+class Armamento < ApplicationRecord
+end

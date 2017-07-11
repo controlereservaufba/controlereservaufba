@@ -1,0 +1,45 @@
+ <p id="notice"><%= notice %></p>
+
+ <h4 class="page-header">Armamentos</h4>
+
+ <div id="list" class="row">
+ <div class="table-responsive col-md-12">
+ <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
+  <thead>
+    <tr>
+             <th>Série</th>
+             <th>Modelo</th>
+             <th>Fabricante</th>
+            <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @armamentos.each do |armamento| %>
+      <tr>
+                    <td><%= armamento.serie %></td>
+                    <td><%= armamento.modelo %></td>
+                    <td><%= armamento.fabricante %></td>
+                <td class="actions">
+         <%= link_to 'Visualizar', armamento,  class: 'btn btn-success btn-xs'%>
+         <%= link_to 'Editar', edit_armamento_path(armamento), class: 'btn btn-warning btn-xs' %>
+         <%= link_to 'Deletar', armamento, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- Paginação -->
+ <div class="text-center">
+  <div class="pagination">
+    <table>
+     <tr>
+       <td><%= paginate @armamentos %></td>
+     <tr>
+    </table>
+  </div>
+ </div>
+<!--Fim Paginação-->
+</div>
+</div>
+<%= link_to 'Novo Armamento', new_armamento_path, class: 'btn btn-success btn-sm' %>

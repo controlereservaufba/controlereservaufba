@@ -1,0 +1,40 @@
+<%= form_with(model: reserva, local: true) do |form| %>
+  <% if reserva.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reserva.errors.count, "error") %> prohibited this reserva from being saved:</h2>
+
+      <ul>
+      <% reserva.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+    <tr>
+     <td><%= form.label :sigla %></td>
+     <td class="col-md-9" width="100" ><%= form.text_field :sigla, id: :reserva_sigla %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :descricao %></td>
+     <td class="col-md-9" width="100" ><%= form.text_field :descricao, id: :reserva_descricao %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :user_id %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :user_id, id: :reserva_user_id %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :status %></td>
+     <td class="col-md-9" width="100" ><%= form.check_box :status, id: :reserva_status %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :data %></td>
+     <td class="col-md-9" width="100" ><%= form.datetime_select :data, id: :reserva_data %></td>
+    <tr><td><br></td></tr>
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>

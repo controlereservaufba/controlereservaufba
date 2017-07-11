@@ -15,8 +15,8 @@
   <tbody>
     <% @acessorios.each do |acessorio| %>
       <tr>
-                    <td><%= acessorio.descricao %></td>
-                <td class="actions">
+        <td><%= acessorio.descricao %></td>
+        <td class="actions">
          <%= link_to 'Visualizar', acessorio,  class: 'btn btn-success btn-xs'%>
          <%= link_to 'Editar', edit_acessorio_path(acessorio), class: 'btn btn-warning btn-xs' %>
          <%= link_to 'Deletar', acessorio, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>

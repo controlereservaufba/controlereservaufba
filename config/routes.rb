@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
 
+
+  
   devise_for :users
   resources :application
   root 'application#index'
-   
   resources :militars
   root 'militars#index'
-
   resources :user
   root 'user#index'
-  
   resources :acessorios
   root 'acessorios#index'
-  
+  resources :armamentos
+  root 'armamentos#index'
+  resources :reservas
+  root 'reservas#index'
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
