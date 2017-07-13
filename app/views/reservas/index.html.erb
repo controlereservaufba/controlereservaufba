@@ -1,6 +1,6 @@
  <p id="notice"><%= notice %></p>
 
- <h4 class="page-header">Reservas</h4>
+ <h4 class="page-header">Reserva</h4>
 
  <div id="list" class="row">
  <div class="table-responsive col-md-12">
@@ -19,15 +19,16 @@
   <tbody>
     <% @reservas.each do |reserva| %>
       <tr>
-                    <td><%= reserva.sigla %></td>
-                    <td><%= reserva.descricao %></td>
-                    <td><%= reserva.user_id %></td>
-                    <td><%= reserva.status %></td>
-                    <td><%= reserva.data %></td>
-                <td class="actions">
-         <%= link_to 'Visualizar', reserva,  class: 'btn btn-success btn-xs'%>
+        <td><%= reserva.sigla %></td>
+        <td><%= reserva.descricao %></td>
+        <td><%= reserva.user_id %></td>
+        <td><%= reserva.status %></td>
+        <td><%= reserva.data %></td>
+        <td class="actions">
+         <!--<%= link_to 'Visualizar', reserva,  class: 'btn btn-success btn-xs'%>-->
          <%= link_to 'Editar', edit_reserva_path(reserva), class: 'btn btn-warning btn-xs' %>
          <%= link_to 'Deletar', reserva, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
+         <%= link_to 'Itens', edit_reserva_path(reserva), class: 'btn btn-success btn-xs' %>
         </td>
       </tr>
     <% end %>
@@ -46,4 +47,4 @@
 <!--Fim Paginação-->
 </div>
 </div>
-<%= link_to 'Novo Reserva', new_reserva_path, class: 'btn btn-success btn-sm' %>
+<%= link_to 'Nova Reserva', new_reserva_path, class: 'btn btn-success btn-sm' %>

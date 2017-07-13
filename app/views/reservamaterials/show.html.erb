@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<div id="main" class="container-fluid">
+<h4 class="page-header">Visualizar</h4>
+
+<p>
+  <strong>Reserva:</strong>
+  <%= @reservamaterial.reserva_id %>
+</p>
+
+<p>
+  <strong>Municao:</strong>
+  <%= @reservamaterial.municao_id %>
+</p>
+
+<p>
+  <strong>Acessorio:</strong>
+  <%= @reservamaterial.acessorio_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @reservamaterial.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reservamaterial.user_id %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @reservamaterial.data %>
+</p>
+
+</div>
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', reservamaterials_path %> </a>

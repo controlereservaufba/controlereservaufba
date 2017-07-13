@@ -1,0 +1,44 @@
+<%= form_with(model: reservamaterial, local: true) do |form| %>
+  <% if reservamaterial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservamaterial.errors.count, "error") %> prohibited this reservamaterial from being saved:</h2>
+
+      <ul>
+      <% reservamaterial.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+    <tr>
+     <td><%= form.label :Reserva %></td>
+     <td><%= collection_select(:reservamaterial, :reserva_id, @reservas, :id, :nome, {:selected => params[:reserva_id]}) %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :municao_id %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :municao_id, id: :reservamaterial_municao_id %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :acessorio_id %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :acessorio_id, id: :reservamaterial_acessorio_id %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :status %></td>
+     <td class="col-md-9" width="100" ><%= form.check_box :status, id: :reservamaterial_status %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :user_id %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :user_id, id: :reservamaterial_user_id %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :data %></td>
+     <td class="col-md-9" width="100" ><%= form.datetime_select :data, id: :reservamaterial_data %></td>
+    <tr><td><br></td></tr>
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>

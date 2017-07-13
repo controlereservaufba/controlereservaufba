@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<div id="main" class="container-fluid">
+<h4 class="page-header">Visualizar</h4>
+
+<p>
+  <strong>Calibre:</strong>
+  <%= @municao.calibre %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @municao.descricao %>
+</p>
+
+</div>
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', municaos_path %> </a>

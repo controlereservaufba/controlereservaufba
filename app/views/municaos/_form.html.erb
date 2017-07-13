@@ -1,0 +1,28 @@
+<%= form_with(model: municao, local: true) do |form| %>
+  <% if municao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(municao.errors.count, "error") %> prohibited this municao from being saved:</h2>
+
+      <ul>
+      <% municao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+    <tr>
+     <td><%= form.label :calibre %></td>
+     <td class="col-md-9" width="100" ><%= form.text_field :calibre, id: :municao_calibre %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :descricao %></td>
+     <td class="col-md-9" width="100" ><%= form.text_field :descricao, id: :municao_descricao %></td>
+    <tr><td><br></td></tr>
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>

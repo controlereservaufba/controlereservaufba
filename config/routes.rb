@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
   
+  resources :reservamaterials
+  resources :municaos
   devise_for :users
   resources :application
   root 'application#index'
