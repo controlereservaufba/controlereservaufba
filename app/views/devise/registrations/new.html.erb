@@ -1,5 +1,11 @@
+<div class ="registrar-page">
+  <img src="http://imageshack.com/a/img923/3687/nPJTb2.png">
+<div class = "col-md-offset-0">
 <h2><%= t('.sign_up') %></h2>
 
+
+<div "class = login-color">
+  
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -10,7 +16,7 @@
 
  <div class="field">
     <%= f.label :nome %><br />
-    <%= f.email_field :nome, autofocus: true %>
+    <%= f.text_field :nome, autofocus: true %>
   </div>
 
   <div class="field">
@@ -24,8 +30,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit t('.sign_up') %>
+    <%= f.submit t('.sign_up'), :class =>'btn btn-success' %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+

@@ -35,7 +35,9 @@
                             <li class="dropdown">
                                  
                                  <% if user_signed_in? %>
-                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="http://laurabethany.com/img/ic-user.png" class="img-responsive img-thumbnail img-circle"><%= current_user.username %></a>
+                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        
+                                    <img src="http://laurabethany.com/img/ic-user.png" class="img-responsive img-thumbnail img-circle"><%= current_user.nome %></a>
                                 <ul class="dropdown-menu dropdown-block" role="menu">
                                     
                                     <li><a href="/perfil">Editar Perfil</a></li>

@@ -34,6 +34,34 @@ ActiveRecord::Schema.define(version: 20170713231841) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "municaos", force: :cascade do |t|
+    t.string "calibre"
+    t.string "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservamaterials", force: :cascade do |t|
+    t.integer "reserva_id"
+    t.integer "municao_id"
+    t.integer "acessorio_id"
+    t.boolean "status"
+    t.integer "user_id"
+    t.datetime "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservas", force: :cascade do |t|
+    t.string "sigla"
+    t.string "descricao"
+    t.integer "user_id"
+    t.boolean "status"
+    t.datetime "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "nome", default: "", null: false
     t.string "username", default: "", null: false
