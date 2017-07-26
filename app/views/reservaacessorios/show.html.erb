@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<div id="main" class="container-fluid">
+<h4 class="page-header">Visualizar</h4>
+
+<p>
+  <strong>Id acessorio:</strong>
+  <%= @reservaacessorio.id_acessorio %>
+</p>
+
+<p>
+  <strong>Qtd acessorio:</strong>
+  <%= @reservaacessorio.qtd_acessorio %>
+</p>
+
+<p>
+  <strong>Serie:</strong>
+  <%= @reservaacessorio.serie %>
+</p>
+
+<p>
+  <strong>Id reserva:</strong>
+  <%= @reservaacessorio.id_reserva %>
+</p>
+
+</div>
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', reservaacessorios_path %> </a>

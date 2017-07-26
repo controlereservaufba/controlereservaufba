@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ReservamaterialTest < ActiveSupport::TestCase
+class ReservaacessorioTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

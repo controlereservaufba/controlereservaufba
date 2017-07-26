@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
 
   
-  resources :reservamaterials
+  resources :reservaacessorios
+  root 'reservaacessorios#index'
+
   resources :municaos
   devise_for :users
   resources :application

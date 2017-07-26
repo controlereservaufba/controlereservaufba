@@ -9,7 +9,6 @@
     <tr>
              <th>Sigla</th>
              <th>Descrição</th>
-             <th>Usuário</th>
              <th>Status</th>
              <th>Data</th>
             <th colspan="2"></th>
@@ -21,14 +20,14 @@
       <tr>
         <td><%= reserva.sigla %></td>
         <td><%= reserva.descricao %></td>
-        <td><%= reserva.user_id %></td>
         <td><%= reserva.status %></td>
-        <td><%= reserva.data %></td>
+        <td><%=formato_data(reserva.data) %></td>
         <td class="actions">
          <!--<%= link_to 'Visualizar', reserva,  class: 'btn btn-success btn-xs'%>-->
          <%= link_to 'Editar', edit_reserva_path(reserva), class: 'btn btn-warning btn-xs' %>
          <%= link_to 'Deletar', reserva, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
-         <%= link_to 'Itens', edit_reserva_path(reserva), class: 'btn btn-success btn-xs' %>
+            <a class="btn btn-success btn-xs"<%= link_to 'Acessorios', {:controller => "reservaacessorios", :action => "index", :reserva_id => reserva.id}%> </a>
+           
         </td>
       </tr>
     <% end %>

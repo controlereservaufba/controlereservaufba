@@ -1,3 +1,3 @@
 class Reserva < ApplicationRecord
-    has_many:reservamaterial
+    has_many:reservaacessorios
 end

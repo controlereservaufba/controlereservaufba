@@ -1,0 +1,33 @@
+<%= form_with(model: reservaacessorio, local: true) do |form| %>
+  <% if reservaacessorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservaacessorio.errors.count, "error") %> prohibited this reservaacessorio from being saved:</h2>
+
+      <ul>
+      <% reservaacessorio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+     <tr>
+     <td><%= form.label :Acessorio %></td>
+     <td><%= collection_select(:reservaacessorio, :acessorio_id, @acessorios, :id, :descricao) %></td>
+    <tr><td><br></td></tr>
+    
+     <td><%= form.label :Quantidade %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_acessorio, id: :reservaacessorio_qtd_acessorio %></td>
+    <tr><td><br></td></tr>
+    
+    <tr>
+     <td><%= form.label :Reserva %></td>
+      <td><%= collection_select(:reservaacessorio, :id_reserva, @reservas, :id, :sigla) %></td>
+    <tr><td><br></td></tr>
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>
