@@ -1,0 +1,45 @@
+ <p id="notice"><%= notice %></p>
+
+ <h4 class="page-header">Lista de Munições</h4>
+
+ <div id="list" class="row">
+ <div class="table-responsive col-md-12">
+ <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
+  <thead>
+    <tr>
+             <th>Munição</th>
+             <th>Quantidade</th>
+             <th>Reserva</th>
+            <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservamunicao.each do |reservamunicao| %>
+      <tr>
+                    <td><%= reservamunicao.municao.descricao %></td>
+                    <td><%= reservamunicao.qtd_municao %></td>
+                    <td><%= reservamunicao.reserva.sigla %></td>
+                <td class="actions">
+         <%= link_to 'Visualizar', reservamunicao,  class: 'btn btn-success btn-xs'%>
+         <%= link_to 'Editar', edit_reservamunicao_path(reservamunicao), class: 'btn btn-warning btn-xs' %>
+         <%= link_to 'Deletar', reservamunicao, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- Paginação -->
+ <div class="text-center">
+  <div class="pagination">
+    <table>
+     <tr>
+       <td><%= paginate @reservamunicao %></td>
+     <tr>
+    </table>
+  </div>
+ </div>
+<!--Fim Paginação-->
+</div>
+</div>
+<%= link_to 'Novo Reservamunicao', new_reservamunicao_path, class: 'btn btn-success btn-sm' %>

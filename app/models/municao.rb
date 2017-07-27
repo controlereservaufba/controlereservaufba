@@ -1,3 +1,3 @@
 class Municao < ApplicationRecord
-    has_many:reservamaterial
+    has_many:reservamunicao
 end

@@ -1,0 +1,32 @@
+<%= form_with(model: reservamunicao, local: true) do |form| %>
+  <% if reservamunicao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservamunicao.errors.count, "error") %> prohibited this reservamunicao from being saved:</h2>
+
+      <ul>
+      <% reservamunicao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+    <tr>
+     <td><%= form.label :Municao %></td>
+      <td><%= collection_select(:reservamunicao, :municao_id, @municaos, :id, :descricao) %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :qtd_municao %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_municao, id: :reservamunicao_qtd_municao %></td>
+    <tr><td><br></td></tr>
+    <tr>
+      <td><%= form.label :Reserva %></td>
+      <td><%= collection_select(:reservamunicao, :reserva_id, @reservas, :id, :sigla) %></td>
+    <tr><td><br></td></tr>
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>

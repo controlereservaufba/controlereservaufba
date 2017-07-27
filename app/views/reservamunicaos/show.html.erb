@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<div id="main" class="container-fluid">
+<h4 class="page-header">Visualizar</h4>
+
+<p>
+  <strong>Municao:</strong>
+  <%= @reservamunicao.municao.descricao %>
+</p>
+
+<p>
+  <strong>Qtd municao:</strong>
+  <%= @reservamunicao.qtd_municao %>
+</p>
+
+
+<p>
+  <strong>Reserva:</strong>
+  <%= @reservamunicao.reserva.sigla %>
+</p>
+
+</div>
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', reservamunicaos_path %> </a>

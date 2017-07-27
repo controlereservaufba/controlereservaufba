@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-
-  
-  resources :reservaacessorios
-  root 'reservaacessorios#index'
-
   resources :municaos
   devise_for :users
   resources :application
@@ -19,6 +14,11 @@ Rails.application.routes.draw do
   root 'armamentos#index'
   resources :reservas
   root 'reservas#index'
+  resources :reservamunicaos
+   root 'reservamunicaos#index'
+  resources :reservaacessorios
+  root 'reservaacessorios#index'
+  
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'

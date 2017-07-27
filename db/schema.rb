@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726122200) do
+ActiveRecord::Schema.define(version: 20170726165849) do
 
   create_table "acessorios", force: :cascade do |t|
     t.string "descricao"
@@ -42,21 +42,19 @@ ActiveRecord::Schema.define(version: 20170726122200) do
   end
 
   create_table "reservaacessorios", force: :cascade do |t|
-    t.integer "id_acessorio"
+    t.integer "acessorio_id"
     t.integer "qtd_acessorio"
     t.string "serie"
-    t.integer "id_reserva"
+    t.integer "reserva_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "reservamaterials", force: :cascade do |t|
-    t.integer "reserva_id"
+  create_table "reservamunicaos", force: :cascade do |t|
     t.integer "municao_id"
-    t.integer "acessorio_id"
-    t.boolean "status"
-    t.integer "user_id"
-    t.datetime "data"
+    t.integer "qtd_municao"
+    t.string "serie"
+    t.integer "reserva_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

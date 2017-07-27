@@ -14,23 +14,24 @@ class ReservaacessoriosController < ApplicationController
 
   # GET /reservaacessorios/new
   def new
-    @reservaacessorio = Reservaacessorio.new
     @acessorios  = Acessorio.all
     @reservas  = Reserva.all
+    @reservaacessorios = Reservaacessorio.new
+
   end
 
   # GET /reservaacessorios/1/edit
   def edit
-    @reservaacessorios = Reservaacessorio.find(params[:id])
     @acessorios  = Acessorio.all
     @reservas  = Reserva.all
+    @reservaacessorios = Reservaacessorio.find(params[:id])
+ 
   end
 
   # POST /reservaacessorios
   # POST /reservaacessorios.json
   def create
     @reservaacessorio = Reservaacessorio.new(reservaacessorio_params)
-
     respond_to do |format|
       if @reservaacessorio.save
         format.html { redirect_to @reservaacessorio, notice: 'Reservaacessorio was successfully created.' }
@@ -74,6 +75,6 @@ class ReservaacessoriosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservaacessorio_params
-      params.require(:reservaacessorio).permit(:id_acessorio, :qtd_acessorio, :serie, :id_reserva)
+      params.require(:reservaacessorio).permit(:acessorio_id, :qtd_acessorio, :serie, :reserva_id)
     end
 end

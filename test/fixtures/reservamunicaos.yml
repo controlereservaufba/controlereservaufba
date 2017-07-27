@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  municao_id: 1
+  qtd_municao: 1
+  serie: MyString
+  reserva_id: 1
+
+two:
+  municao_id: 1
+  qtd_municao: 1
+  serie: MyString
+  reserva_id: 1

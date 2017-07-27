@@ -1,3 +1,3 @@
 class Acessorio < ApplicationRecord
-    has_many:reservaacessorios
+    has_many:reservaacessorio
 end
