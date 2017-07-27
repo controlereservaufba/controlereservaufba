@@ -28,6 +28,7 @@
          <%= link_to 'Deletar', reserva, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
             <a class="btn btn-success btn-xs"<%= link_to 'Acessorios', {:controller => "reservaacessorios", :action => "index", :reserva_id => reserva.id}%> </a>
             <a class="btn btn-success btn-xs"<%= link_to 'Munição', {:controller => "reservamunicaos", :action => "index", :reserva_id => reserva.id}%> </a>
+            <a class="btn btn-success btn-xs"<%= link_to 'Armamento', {:controller => "reservaarmamentos", :action => "index", :reserva_id => reserva.id}%> </a>
            
         </td>
       </tr>

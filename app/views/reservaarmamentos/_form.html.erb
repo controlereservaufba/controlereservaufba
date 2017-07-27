@@ -1,0 +1,36 @@
+<%= form_with(model: reservaarmamento, local: true) do |form| %>
+  <% if reservaarmamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservaarmamento.errors.count, "error") %> prohibited this reservaarmamento from being saved:</h2>
+
+      <ul>
+      <% reservaarmamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+     <tr>
+     <td><%= form.label :Armamento %></td>
+     <td><%= collection_select(:reservaarmamento, :armamento_id, @armamentos, :id, :modelo) %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :Quantidade %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_armamento, id: :reservaarmamento_qtd_armamento %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :Serie %></td>
+     <td class="col-md-9" width="100" ><%= form.text_field :serie, id: :reservaarmamento_serie %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :Reserva %></td>
+      <td><%= collection_select(:reservaarmamento, :reserva_id, @reservas, :id, :sigla) %></td>
+    <tr><td><br></td></tr>
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>

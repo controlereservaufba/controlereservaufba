@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<div id="main" class="container-fluid">
+<h4 class="page-header">Visualizar</h4>
+
+<p>
+  <strong>Armamento:</strong>
+  <%= @reservaarmamento.armamento.modelo %>
+</p>
+
+<p>
+  <strong>Qtd armamento:</strong>
+  <%= @reservaarmamento.qtd_armamento %>
+</p>
+
+<p>
+  <strong>Serie:</strong>
+  <%= @reservaarmamento.serie %>
+</p>
+
+<p>
+  <strong>Reserva:</strong>
+  <%= @reservaarmamento.reserva.sigla %>
+</p>
+
+</div>
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', reservaarmamentos_path %> </a>

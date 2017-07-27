@@ -10,15 +10,13 @@ class ReservamunicaosController < ApplicationController
   # GET /reservamunicaos/1
   # GET /reservamunicaos/1.json
   def show
-    
-   @reservas  = Reserva.all
+    @reservas  = Reserva.all
     @municaos = Municao.all
   end
 
   # GET /reservamunicaos/new
   def new
-    
-   @reservas  = Reserva.all
+    @reservas  = Reserva.all
     @municaos = Municao.all
     @reservamunicao = Reservamunicao.new
    
