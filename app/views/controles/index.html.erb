@@ -1,0 +1,44 @@
+ <p id="notice"><%= notice %></p>
+
+ <h4 class="page-header">Controle</h4>
+
+ <div id="list" class="row">
+ <div class="table-responsive col-md-12">
+ <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
+  <thead>
+    <tr>
+             <th>Reserva</th>
+             <th>Data fechamento</th>
+             <th>Data abertura</th>
+             <th>Status</th>
+            <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @controles.each do |controle| %>
+      <tr>
+        <td><%= controle.reserva_id %></td>
+        <td><%= controle.data_fechamento %></td>
+        <td><%= controle.data_abertura %></td>
+        <td><%= controle.status %></td>
+        <td class="actions">
+         <%= link_to 'Visualizar', edit_controle_path(controle), class: 'btn btn-warning btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- Paginação -->
+ <div class="text-center">
+  <div class="pagination">
+    <table>
+     <tr>
+       <td><%= paginate @controles %></td>
+     <tr>
+    </table>
+  </div>
+ </div>
+<!--Fim Paginação-->
+</div>
+</div>

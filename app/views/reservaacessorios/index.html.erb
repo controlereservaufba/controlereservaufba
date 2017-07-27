@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @reservaacessorios.each do |reservaacessorio| %>
+    <% @reservaacessorio.each do |reservaacessorio| %>
       <tr>
          <td><%= reservaacessorio.acessorio.descricao %></td>
          <td><%= reservaacessorio.qtd_acessorio %></td>
@@ -34,7 +34,7 @@
   <div class="pagination">
     <table>
      <tr>
-       <td><%= paginate @reservaacessorios %></td>
+       <td><%= paginate @reservaacessorio %></td>
      <tr>
     </table>
   </div>
@@ -42,4 +42,6 @@
 <!--Fim Paginação-->
 </div>
 </div>
-<%= link_to 'Novo Acessorio', new_reservaacessorio_path, class: 'btn btn-success btn-sm' %>
+
+
+<%= link_to 'Nova Acessorio', new_reservaacessorio_path, class: 'btn btn-success btn-sm' %>

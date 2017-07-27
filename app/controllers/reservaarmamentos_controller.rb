@@ -10,8 +10,6 @@ class ReservaarmamentosController < ApplicationController
   # GET /reservaarmamentos/1
   # GET /reservaarmamentos/1.json
   def show
-    @armamentos  = Armamento.all
-    @reservas  = Reserva.all
   end
 
   # GET /reservaarmamentos/new
@@ -33,7 +31,6 @@ class ReservaarmamentosController < ApplicationController
   # POST /reservaarmamentos.json
   def create
     @reservaarmamento = Reservaarmamento.new(reservaarmamento_params)
-
     respond_to do |format|
       if @reservaarmamento.save
         format.html { redirect_to @reservaarmamento, notice: 'Reservaarmamento was successfully created.' }

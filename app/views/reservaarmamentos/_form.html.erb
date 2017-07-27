@@ -14,7 +14,7 @@
 <table>
      <tr>
      <td><%= form.label :Armamento %></td>
-     <td><%= collection_select(:reservaarmamento, :armamento_id, @armamentos, :id, :modelo) %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :armamento_id, id: :reservaarmamento_armamento_id %></td>
     <tr><td><br></td></tr>
     <tr>
      <td><%= form.label :Quantidade %></td>
@@ -26,7 +26,7 @@
     <tr><td><br></td></tr>
     <tr>
      <td><%= form.label :Reserva %></td>
-      <td><%= collection_select(:reservaarmamento, :reserva_id, @reservas, :id, :sigla) %></td>
+       <td class="col-md-9" width="100" ><%= form.number_field :reserva_id, id: :reservaarmamento_reserva_id %></td>
     <tr><td><br></td></tr>
 </table>
   

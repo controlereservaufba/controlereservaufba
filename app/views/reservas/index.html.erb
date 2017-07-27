@@ -7,11 +7,11 @@
  <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
   <thead>
     <tr>
-             <th>Sigla</th>
-             <th>Descrição</th>
-             <th>Status</th>
-             <th>Data</th>
-            <th colspan="2"></th>
+      <th>Sigla</th>
+      <th>Descrição</th>
+      <th>Status</th>
+      <th>Data</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -26,7 +26,7 @@
          <!--<%= link_to 'Visualizar', reserva,  class: 'btn btn-success btn-xs'%>-->
          <%= link_to 'Editar', edit_reserva_path(reserva), class: 'btn btn-warning btn-xs' %>
          <%= link_to 'Deletar', reserva, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
-            <a class="btn btn-success btn-xs"<%= link_to 'Acessorios', {:controller => "reservaacessorios", :action => "index", :reserva_id => reserva.id}%> </a>
+            <a class="btn btn-success btn-xs"<%= link_to 'Acessórios', {:controller => "reservaacessorios", :action => "index", :reserva_id => reserva.id}%> </a>
             <a class="btn btn-success btn-xs"<%= link_to 'Munição', {:controller => "reservamunicaos", :action => "index", :reserva_id => reserva.id}%> </a>
             <a class="btn btn-success btn-xs"<%= link_to 'Armamento', {:controller => "reservaarmamentos", :action => "index", :reserva_id => reserva.id}%> </a>
            

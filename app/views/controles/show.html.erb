@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div id="main" class="container-fluid">
+<h4 class="page-header">Visualizar</h4>
+
+<p>
+  <strong>Reserva:</strong>
+  <%= @controle.reserva_id %>
+</p>
+
+<p>
+  <strong>Data fechamento:</strong>
+  <%= @controle.data_fechamento %>
+</p>
+
+<p>
+  <strong>Data abertura:</strong>
+  <%= @controle.data_abertura %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @controle.status %>
+</p>
+
+<p>
+  <strong>Qtd municao:</strong>
+  <%= @controle.qtd_municao %>
+</p>
+
+<p>
+  <strong>Qtd armamento:</strong>
+  <%= @controle.qtd_armamento %>
+</p>
+
+<p>
+  <strong>Qtd acessorio:</strong>
+  <%= @controle.qtd_acessorio %>
+</p>
+
+</div>
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', controles_path %> </a>

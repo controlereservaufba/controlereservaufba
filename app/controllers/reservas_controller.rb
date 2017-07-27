@@ -28,6 +28,19 @@ class ReservasController < ApplicationController
 
     respond_to do |format|
       if @reserva.save
+        
+      @controle = Controle.where(reserva_id: @reserva.id)
+      if  @controle.empty?
+        @controle = Controle.new()
+        @controle.reserva_id  = @reserva.id
+        @controle.data_abertura =  DateTime.now   
+        @controle.status  = true
+        @controle.qtd_acessorio = 0
+        @controle.qtd_municao = 0
+        @controle.qtd_armamento = 0
+        @controle.save
+      end  
+      
         format.html { redirect_to @reserva, notice: 'Reserva was successfully created.' }
         format.json { render :show, status: :created, location: @reserva }
       else
@@ -35,6 +48,9 @@ class ReservasController < ApplicationController
         format.json { render json: @reserva.errors, status: :unprocessable_entity }
       end
     end
+    
+
+  
   end
 
   # PATCH/PUT /reservas/1

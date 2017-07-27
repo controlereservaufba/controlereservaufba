@@ -4,7 +4,7 @@ class ReservaacessoriosController < ApplicationController
   # GET /reservaacessorios
   # GET /reservaacessorios.json
   def index
-    @reservaacessorios = Reservaacessorio.page(params['page']).per(5);
+    @reservaacessorio = Reservaacessorio.page(params['page']).per(5);
   end
 
   # GET /reservaacessorios/1
@@ -16,7 +16,7 @@ class ReservaacessoriosController < ApplicationController
   def new
     @acessorios  = Acessorio.all
     @reservas  = Reserva.all
-    @reservaacessorios = Reservaacessorio.new
+    @reservaacessorio = Reservaacessorio.new
 
   end
 
@@ -24,23 +24,33 @@ class ReservaacessoriosController < ApplicationController
   def edit
     @acessorios  = Acessorio.all
     @reservas  = Reserva.all
-    @reservaacessorios = Reservaacessorio.find(params[:id])
+    @reservaacessorio = Reservaacessorio.find(params[:id])
  
   end
 
   # POST /reservaacessorios
   # POST /reservaacessorios.json
   def create
+        
     @reservaacessorio = Reservaacessorio.new(reservaacessorio_params)
     respond_to do |format|
       if @reservaacessorio.save
-        format.html { redirect_to @reservaacessorio, notice: 'Reservaacessorio was successfully created.' }
+        format.html { redirect_to @reservaacessorio, notice: 'Reservaacessosssrio was successfully created.'+'item' }
         format.json { render :show, status: :created, location: @reservaacessorio }
       else
         format.html { render :new }
         format.json { render json: @reservaacessorio.errors, status: :unprocessable_entity }
       end
     end
+   
+   #Atualização da reserva total quando há a inclusão de um novo acessorio 
+     @controle = Controle.where(reserva_id: @reservaacessorio.reserva_id) 
+     @controle.each do |controle|
+       qtd = controle.qtd_acessorio
+       qtd= qtd + @reservaacessorio.qtd_acessorio
+       @controle.update(qtd_acessorio: qtd)
+    end
+    
   end
 
   # PATCH/PUT /reservaacessorios/1
@@ -48,7 +58,7 @@ class ReservaacessoriosController < ApplicationController
   def update
     respond_to do |format|
       if @reservaacessorio.update(reservaacessorio_params)
-        format.html { redirect_to @reservaacessorio, notice: 'Reservaacessorio was successfully updated.' }
+        format.html { redirect_to @reservaacessorio, notice: 'Reservaacessoriosss was successfully updated.'}
         format.json { render :show, status: :ok, location: @reservaacessorio }
       else
         format.html { render :edit }

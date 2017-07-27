@@ -1,0 +1,48 @@
+<%= form_with(model: controle, local: true) do |form| %>
+  <% if controle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(controle.errors.count, "error") %> prohibited this controle from being saved:</h2>
+
+      <ul>
+      <% controle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+    <tr>
+     <td><%= form.label :reserva_id %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :reserva_id, id: :controle_reserva_id %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :data_fechamento %></td>
+     <td class="col-md-9" width="100" ><%= form.datetime_select :data_fechamento, id: :controle_data_fechamento %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :data_abertura %></td>
+     <td class="col-md-9" width="100" ><%= form.datetime_select :data_abertura, id: :controle_data_abertura %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :status %></td>
+     <td class="col-md-9" width="100" ><%= form.check_box :status, id: :controle_status %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :qtd_municao %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_municao, id: :controle_qtd_municao %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :qtd_armamento %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_armamento, id: :controle_qtd_armamento %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :qtd_acessorio %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_acessorio, id: :controle_qtd_acessorio %></td>
+    <tr><td><br></td></tr>
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>

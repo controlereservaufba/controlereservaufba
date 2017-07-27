@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   root 'reservaarmamentos#index'
   resources :municaos
   root 'municaos#index'
+  resources :controles
+  root 'controles#index'
   
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
@@ -29,5 +31,11 @@ Rails.application.routes.draw do
     get '/user' => 'user#index'
   end
   
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ 
+ resources :controles do
+     member do
+       get 'baixa'=> 'controles#baixa'
+      end
+   end
+   
 end
