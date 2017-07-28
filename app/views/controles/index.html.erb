@@ -8,22 +8,22 @@
   <thead>
     <tr>
              <th>Reserva</th>
-             <th>Data fechamento</th>
-             <th>Data abertura</th>
+             <th>Data Sbertura</th>
              <th>Status</th>
-            <th colspan="2"></th>
+           
     </tr>
   </thead>
 
   <tbody>
     <% @controles.each do |controle| %>
       <tr>
-        <td><%= controle.reserva_id %></td>
-        <td><%= controle.data_fechamento %></td>
-        <td><%= controle.data_abertura %></td>
+        <td><%= controle.reserva.sigla %></td>
+        <td><%= formato_data(controle.data_abertura) %></td>
         <td><%= controle.status %></td>
         <td class="actions">
          <%= link_to 'Visualizar', edit_controle_path(controle), class: 'btn btn-warning btn-xs' %>
+          <%= link_to 'Abrir', edit_controle_path(controle), class: 'btn btn-primary btn-xs' %>
+          <%= link_to 'Fechar', edit_controle_path(controle), class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>
     <% end %>

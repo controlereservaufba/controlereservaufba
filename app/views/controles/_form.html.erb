@@ -13,31 +13,27 @@
   
 <table>
     <tr>
-     <td><%= form.label :reserva_id %></td>
-     <td class="col-md-9" width="100" ><%= form.number_field :reserva_id, id: :controle_reserva_id %></td>
+     <td><%= form.label :Reserva %></td>
+     <td><%= collection_select(:controle, :reserva_id, @reservas, :id, :sigla ) %></td>
     <tr><td><br></td></tr>
-    <tr>
-     <td><%= form.label :data_fechamento %></td>
-     <td class="col-md-9" width="100" ><%= form.datetime_select :data_fechamento, id: :controle_data_fechamento %></td>
-    <tr><td><br></td></tr>
-    <tr>
-     <td><%= form.label :data_abertura %></td>
+   
+     <td><%= form.label :Abertura %></td>
      <td class="col-md-9" width="100" ><%= form.datetime_select :data_abertura, id: :controle_data_abertura %></td>
     <tr><td><br></td></tr>
     <tr>
-     <td><%= form.label :status %></td>
+     <td><%= form.label :Status %></td>
      <td class="col-md-9" width="100" ><%= form.check_box :status, id: :controle_status %></td>
     <tr><td><br></td></tr>
     <tr>
-     <td><%= form.label :qtd_municao %></td>
+     <td><%= form.label :Munição %></td>
      <td class="col-md-9" width="100" ><%= form.number_field :qtd_municao, id: :controle_qtd_municao %></td>
     <tr><td><br></td></tr>
     <tr>
-     <td><%= form.label :qtd_armamento %></td>
+     <td><%= form.label :Armamento %></td>
      <td class="col-md-9" width="100" ><%= form.number_field :qtd_armamento, id: :controle_qtd_armamento %></td>
     <tr><td><br></td></tr>
     <tr>
-     <td><%= form.label :qtd_acessorio %></td>
+     <td><%= form.label :Acessorio %></td>
      <td class="col-md-9" width="100" ><%= form.number_field :qtd_acessorio, id: :controle_qtd_acessorio %></td>
     <tr><td><br></td></tr>
 </table>

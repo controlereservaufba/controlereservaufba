@@ -5,6 +5,7 @@ class ControlesController < ApplicationController
   # GET /controles.json
   def index
     @controles = Controle.page(params['page']).per(5);
+    @reservas = Reserva.all;
     
   end
 
@@ -16,10 +17,14 @@ class ControlesController < ApplicationController
   # GET /controles/new
   def new
     @controle = Controle.new
+    @reservas = Reserva.all;
   end
 
   # GET /controles/1/edit
   def edit
+    
+        @reservas = Reserva.all;
+        @controle = Controle.find(params[:id])
   end
 
   # POST /controles

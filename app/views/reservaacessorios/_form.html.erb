@@ -13,17 +13,17 @@
   
 <table>
      <tr>
+     <td><%= form.label :Reserva %></td>
+      <td><%= collection_select(:reservaacessorio, :reserva_id, @reservas, :id, :sigla, {:selected => params[:reserva_id]} ) %></td>
+    <tr><td><br></td></tr>
+    
+     <tr>
      <td><%= form.label :Acessório %></td>
      <td><%= collection_select(:reservaacessorio, :acessorio_id, @acessorios, :id, :descricao) %></td>
     <tr><td><br></td></tr>
     
      <td><%= form.label :Quantidade %></td>
      <td class="col-md-9" width="100" ><%= form.number_field :qtd_acessorio, id: :reservaacessorio_qtd_acessorio %></td>
-    <tr><td><br></td></tr>
-    
-    <tr>
-     <td><%= form.label :Reserva %></td>
-      <td><%= collection_select(:reservaacessorio, :reserva_id, @reservas, :id, :sigla) %></td>
     <tr><td><br></td></tr>
 </table>
   

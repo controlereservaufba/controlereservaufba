@@ -4,7 +4,7 @@ class ReservaacessoriosController < ApplicationController
   # GET /reservaacessorios
   # GET /reservaacessorios.json
   def index
-    @reservaacessorio = Reservaacessorio.page(params['page']).per(5);
+     @reservaacessorio = Reservaacessorio.where(reserva_id: params[:reserva_id]).page(params['page']).per(5);
   end
 
   # GET /reservaacessorios/1
@@ -35,7 +35,7 @@ class ReservaacessoriosController < ApplicationController
     @reservaacessorio = Reservaacessorio.new(reservaacessorio_params)
     respond_to do |format|
       if @reservaacessorio.save
-        format.html { redirect_to @reservaacessorio, notice: 'Reservaacessosssrio was successfully created.'+'item' }
+        format.html { redirect_to @reservaacessorio, notice: 'Item cridao com sucesso!' }
         format.json { render :show, status: :created, location: @reservaacessorio }
       else
         format.html { render :new }
