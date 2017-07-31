@@ -5,6 +5,7 @@ class ReservaacessoriosController < ApplicationController
   # GET /reservaacessorios.json
   def index
      @reservaacessorio = Reservaacessorio.where(reserva_id: params[:reserva_id]).page(params['page']).per(5);
+     
   end
 
   # GET /reservaacessorios/1

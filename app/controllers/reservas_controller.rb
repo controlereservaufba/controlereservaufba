@@ -28,7 +28,7 @@ class ReservasController < ApplicationController
 
     respond_to do |format|
       if @reserva.save
-        
+      #Se a reserva foi salva é inserido um controle para aquela reserva  
       @controle = Controle.where(reserva_id: @reserva.id)
       if  @controle.empty?
         @controle = Controle.new()
@@ -70,6 +70,13 @@ class ReservasController < ApplicationController
   # DELETE /reservas/1
   # DELETE /reservas/1.json
   def destroy
+    
+    #Se a reserva for destruída, seu controle também é destruído   
+    @controle = Controle.where(reserva_id: @reserva.id)
+    if  @controle.empty?
+        @controle.destroy
+    end 
+      
     @reserva.destroy
     respond_to do |format|
       format.html { redirect_to reservas_url, notice: 'Reserva was successfully destroyed.' }

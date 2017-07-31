@@ -13,24 +13,24 @@
   
 <table>
     <tr>
-     <td><%= form.label :sigla %></td>
+     <td><%= form.label :Sigla %></td>
      <td class="col-md-9" width="100" ><%= form.text_field :sigla, id: :reserva_sigla %></td>
     <tr><td><br></td></tr>
     <tr>
-     <td><%= form.label :descricao %></td>
+     <td><%= form.label :Descrição %></td>
      <td class="col-md-9" width="100" ><%= form.text_field :descricao, id: :reserva_descricao %></td>
     <tr><td><br></td></tr>
     <tr>
     <td><%= form.label :user_id, "Usuário Responsável" %></td>
-    <td><%= form.text_field :user_id,:value =>current_user.nome, :readonly => true %></td>
+    <td class="col-md-9" width="100" ><%= form.text_field :user_id,:value =>current_user.nome, :readonly => true %></td>
     </tr>
    <tr><td><br></td></tr>
     <tr>
-     <td><%= form.label :status %></td>
+     <td><%= form.label :Status %></td>
      <td class="col-md-9" width="100" ><%= form.check_box :status, id: :reserva_status %></td>
     <tr><td><br></td></tr>
     <tr>
-     <td><%= form.label :data %></td>
+     <td><%= form.label :Data %></td>
      <td class="col-md-9" width="100" ><%= form.datetime_select :data, id: :reserva_data %></td>
     <tr><td><br></td></tr>
 </table>

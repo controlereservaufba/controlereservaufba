@@ -6,12 +6,13 @@ class ControlesController < ApplicationController
   def index
     @controles = Controle.page(params['page']).per(5);
     @reservas = Reserva.all;
-    
   end
 
   # GET /controles/1
   # GET /controles/1.json
   def show
+      @total=Reservaacessorio.where(reserva_id: @controle.reserva_id).total;
+      @controles= Reservaacessorio.select(" reserva_id,acessorio_id, sum(qtd_acessorio) as total_qtd").where(reserva_id: @controle.reserva_id).group("reserva_id,acessorio_id").page(params['page']).per(20);
   end
 
   # GET /controles/new
@@ -22,7 +23,6 @@ class ControlesController < ApplicationController
 
   # GET /controles/1/edit
   def edit
-    
         @reservas = Reserva.all;
         @controle = Controle.find(params[:id])
   end

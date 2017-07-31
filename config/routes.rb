@@ -38,4 +38,13 @@ Rails.application.routes.draw do
       end
    end
    
+   
+ 
+ resources :controles do
+     member do
+       get 'show'=> 'controles#show'
+      end
+   end
+   
+   
 end

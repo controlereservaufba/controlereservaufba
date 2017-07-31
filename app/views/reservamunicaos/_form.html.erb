@@ -13,16 +13,16 @@
   
 <table>
     <tr>
+      <td><%= form.label :Reserva %></td>
+      <td><%= collection_select(:reservamunicao, :reserva_id, @reservas, :id, :sigla) %></td>
+    <tr><td><br></td></tr>
+    <tr>
      <td><%= form.label :Munição %></td>
       <td><%= collection_select(:reservamunicao, :municao_id, @municaos, :id, :descricao) %></td>
     <tr><td><br></td></tr>
     <tr>
      <td><%= form.label :Quantidade %></td>
      <td class="col-md-9" width="100" ><%= form.number_field :qtd_municao, id: :reservamunicao_qtd_municao %></td>
-    <tr><td><br></td></tr>
-    <tr>
-      <td><%= form.label :Reserva %></td>
-      <td><%= collection_select(:reservamunicao, :reserva_id, @reservas, :id, :sigla) %></td>
     <tr><td><br></td></tr>
 </table>
   
