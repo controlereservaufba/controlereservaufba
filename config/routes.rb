@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :reservaarmamentos
   devise_for :users
   resources :application
   root 'application#index'
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
    root 'reservamunicaos#index'
   resources :reservaacessorios
   root 'reservaacessorios#index'
-  resources :reservaarmamentos
   root 'reservaarmamentos#index'
   resources :municaos
   root 'municaos#index'

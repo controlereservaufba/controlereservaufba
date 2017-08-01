@@ -4,15 +4,19 @@ class ControlesController < ApplicationController
   # GET /controles
   # GET /controles.json
   def index
-    @controles = Controle.page(params['page']).per(5);
+    @controles = Controle.page(params['page']).per(7);
     @reservas = Reserva.all;
   end
 
   # GET /controles/1
   # GET /controles/1.json
   def show
-      @total=Reservaacessorio.where(reserva_id: @controle.reserva_id).total;
-      @controles= Reservaacessorio.select(" reserva_id,acessorio_id, sum(qtd_acessorio) as total_qtd").where(reserva_id: @controle.reserva_id).group("reserva_id,acessorio_id").page(params['page']).per(20);
+    @total=Reservaacessorio.where(reserva_id: @controle.reserva_id).total+
+           Reservamunicao.where(reserva_id: @controle.reserva_id).total+
+           Reservaarmamento.where(reserva_id: @controle.reserva_id).total;
+    @controles= Reservaacessorio.select(" reserva_id,acessorio_id, sum(qtd_acessorio) as total_qtd").where(reserva_id: @controle.reserva_id).group("reserva_id,acessorio_id").page(params['page']).per(200);
+    @controlesmunicao= Reservamunicao.select(" reserva_id,municao_id, sum(qtd_municao) as total_qtd").where(reserva_id: @controle.reserva_id).group("reserva_id,municao_id").page(params['page']).per(200);
+    @controlesarma= Reservaarmamento.select(" reserva_id,armamento_id, sum(qtd_armamento) as total_qtd").where(reserva_id: @controle.reserva_id).group("reserva_id,armamento_id ").page(params['page']).per(200);
   end
 
   # GET /controles/new

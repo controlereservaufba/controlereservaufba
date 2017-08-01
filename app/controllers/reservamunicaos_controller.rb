@@ -4,7 +4,7 @@ class ReservamunicaosController < ApplicationController
   # GET /reservamunicaos
   # GET /reservamunicaos.json
   def index
-    @reservamunicao = Reservamunicao.page(params['page']).per(5);
+    @reservamunicao = Reservamunicao.where(reserva_id: params[:reserva_id]).page(params['page']).per(5);
   end
 
   # GET /reservamunicaos/1

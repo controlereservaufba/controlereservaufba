@@ -10,15 +10,14 @@
       </ul>
     </div>
   <% end %>
-  
 <table>
     <tr>
-      <td><%= form.label :Reserva %></td>
-      <td><%= collection_select(:reservamunicao, :reserva_id, @reservas, :id, :sigla) %></td>
+     <td><%= form.label :Reserva %></td>
+       <td class="col-md-9" width="100" ><%= collection_select(:reservamunicao, :reserva_id, @reservas, :id, :sigla, {:selected => params[:reserva_id]} ) %></td>
     <tr><td><br></td></tr>
     <tr>
      <td><%= form.label :Munição %></td>
-      <td><%= collection_select(:reservamunicao, :municao_id, @municaos, :id, :descricao) %></td>
+        <td class="col-md-9" width="100"><%= collection_select(:reservamunicao, :municao_id, @municaos, :id, :descricao) %></td>
     <tr><td><br></td></tr>
     <tr>
      <td><%= form.label :Quantidade %></td>

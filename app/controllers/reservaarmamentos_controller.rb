@@ -4,7 +4,7 @@ class ReservaarmamentosController < ApplicationController
   # GET /reservaarmamentos
   # GET /reservaarmamentos.json
   def index
-    @reservaarmamentos = Reservaarmamento.page(params['page']).per(5);
+    @reservaarmamentos = Reservaarmamento.where(reserva_id: params[:reserva_id]).page(params['page']).per(5);
   end
 
   # GET /reservaarmamentos/1
@@ -24,13 +24,13 @@ class ReservaarmamentosController < ApplicationController
     @armamentos  = Armamento.all
     @reservas  = Reserva.all
     @reservaarmamento = Reservaarmamento.find(params[:id])
-  
   end
 
   # POST /reservaarmamentos
   # POST /reservaarmamentos.json
   def create
     @reservaarmamento = Reservaarmamento.new(reservaarmamento_params)
+
     respond_to do |format|
       if @reservaarmamento.save
         format.html { redirect_to @reservaarmamento, notice: 'Reservaarmamento was successfully created.' }
@@ -74,6 +74,6 @@ class ReservaarmamentosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservaarmamento_params
-      params.require(:reservaarmamento).permit(:armamento_id, :qtd_armamento, :serie, :reserva_id)
+      params.require(:reservaarmamento).permit(:armamento_id, :reserva_id, :qtd_armamento, :serie)
     end
 end

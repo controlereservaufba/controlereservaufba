@@ -4,9 +4,8 @@ class CreateReservas < ActiveRecord::Migration[5.1]
       t.string :sigla
       t.string :descricao
       t.integer :user_id
-      t.boolean :status
+      t.boolean :status, :default => true
       t.datetime :data
-
       t.timestamps
     end
   end

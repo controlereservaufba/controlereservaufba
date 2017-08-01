@@ -2,12 +2,12 @@
 
 one:
   armamento_id: 1
+  reserva_id: 1
   qtd_armamento: 1
   serie: MyString
-  reserva_id: 1
 
 two:
   armamento_id: 1
+  reserva_id: 1
   qtd_armamento: 1
   serie: MyString
-  reserva_id: 1

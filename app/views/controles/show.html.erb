@@ -4,23 +4,42 @@
  <div class="table-responsive col-md-12">
  <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
   <thead>
-    <tr>
+      <tr><th class="titulo_item" >ACESSÓRIOS</th><th></th><th></th></tr>
+      <tr>
              <th>Reserva</th>
-             <th>Acessório</th>
+             <th>Item</th>
              <th>Quantidade</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @controles.each do |controle| %>
+    <tr>
+      <% @controles.each do |controle| %>
       <tr>
         <td><%= controle.reserva.sigla %></td>
         <td><%= controle.acessorio.descricao %></td>
         <td><%= controle.total_qtd %>    </td>
       </tr>
+      <% end %>
+    </tr>
+    <tr><th class="titulo_item">MUNIÇÃO</th><th></th><th></th></tr>
+     <% @controlesmunicao.each do |controlemunicao| %>
+      <tr>
+        <td><%= controlemunicao.reserva.sigla %></td>
+        <td><%= controlemunicao.municao.descricao %></td>
+        <td><%= controlemunicao.total_qtd %>    </td>
+      </tr>
+    <% end %>
+     <tr><th class="titulo_item">ARMAMENTO</th></th><th></th><th></th></tr>
+     <% @controlesarma.each do |controlearma| %>
+      <tr>
+        <td><%= controlearma.reserva.sigla %></td>
+        <td><%= controlearma.armamento.modelo %></td>
+        <td><%= controlearma.total_qtd %>    </td>
+      </tr>
     <% end %>
     <tr>
-          <th>Total</th>
+          <th>Total Geral</th>
           <th><%=@total%></th>
           <th></th>
     </tr>

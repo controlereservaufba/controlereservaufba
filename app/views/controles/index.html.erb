@@ -8,7 +8,7 @@
   <thead>
     <tr>
         <th>Reserva</th>
-        <th>Data Sbertura</th>
+        <th>Data Abertura</th>
         <th>Status</th>
     </tr>
   </thead>
@@ -18,7 +18,11 @@
       <tr>
         <td><%= controle.reserva.sigla %></td>
         <td><%= formato_data(controle.data_abertura) %></td>
-        <td><%= controle.status %></td>
+        <%if (controle.status == true) %>
+           <td>Aberta</td>
+         <%else %>
+           <td>Fechada</td>
+        <%end %>
         <td class="actions">
           <%= link_to 'Visualizar', controle,  class: 'btn btn-warning btn-xs'%>
           <%= link_to 'Abrir', edit_controle_path(controle), class: 'btn btn-primary btn-xs' %>

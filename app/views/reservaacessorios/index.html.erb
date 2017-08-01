@@ -1,28 +1,27 @@
  <p id="notice"><%= notice %></p>
 
- <h4 class="page-header">Lista de Acessorios</h4>
+ <h4 class="page-header">Lista de Acessórios</h4>
 
  <div id="list" class="row">
  <div class="table-responsive col-md-12">
  <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
   <thead>
-    <tr>
-             <th>Acessório</th>
-             <th>Quantidade</th>
-             <th>Reserva</th>
-            <th colspan="2"></th>
+    <tr>    
+         <th>Reserva</th>
+         <th>Acessório</th>
+         <th>Quantidade</th>
+         <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @reservaacessorio.each do |reservaacessorio| %>
       <tr>
+         <td><%= reservaacessorio.reserva.sigla %></td>
          <td><%= reservaacessorio.acessorio.descricao %></td>
          <td><%= reservaacessorio.qtd_acessorio %></td>
-         <td><%= reservaacessorio.reserva.sigla %></td>
          <td class="actions">
          <%= link_to 'Visualizar', reservaacessorio,  class: 'btn btn-success btn-xs'%>
-         <%= link_to 'Editar', edit_reservaacessorio_path(reservaacessorio), class: 'btn btn-warning btn-xs' %>
          <%= link_to 'Deletar', reservaacessorio, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>

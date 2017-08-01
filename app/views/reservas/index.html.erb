@@ -20,7 +20,12 @@
       <tr>
         <td><%= reserva.sigla %></td>
         <td><%= reserva.descricao %></td>
-        <td><%= reserva.status %></td>
+         <%if (reserva.status == true) %>
+           <td>Aberta</td>
+         <%else %>
+           <td>Fechada</td>
+  
+        <%end %>
         <td><%=formato_data(reserva.data) %></td>
         <td class="actions">
          <!--<%= link_to 'Visualizar', reserva,  class: 'btn btn-success btn-xs'%>-->

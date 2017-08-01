@@ -7,11 +7,11 @@
  <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
   <thead>
     <tr>
-             <th>Armamento</th>
-             <th>Qtd armamento</th>
-             <th>Serie</th>
-             <th>Reserva</th>
-            <th colspan="2"></th>
+      <th>Reserva</th>
+      <th>Armamento</th>
+      <th>Série</th>
+      <th>Quantidade</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -19,12 +19,11 @@
     <% @reservaarmamentos.each do |reservaarmamento| %>
       <tr>
         <td><%= reservaarmamento.armamento.modelo %></td>
-        <td><%= reservaarmamento.qtd_armamento %></td>
-        <td><%= reservaarmamento.serie %></td>
         <td><%= reservaarmamento.reserva.sigla %></td>
+        <td><%= reservaarmamento.serie %></td>
+        <td><%= reservaarmamento.qtd_armamento %></td>
         <td class="actions">
          <%= link_to 'Visualizar', reservaarmamento,  class: 'btn btn-success btn-xs'%>
-         <%= link_to 'Editar', edit_reservaarmamento_path(reservaarmamento), class: 'btn btn-warning btn-xs' %>
          <%= link_to 'Deletar', reservaarmamento, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>
@@ -45,3 +44,4 @@
 </div>
 </div>
 <%= link_to 'Novo Item', new_reservaarmamento_path, class: 'btn btn-success btn-sm' %>
+<%= link_to 'Voltar', reservas_path, class: 'btn btn-default btn-sm' %> 
