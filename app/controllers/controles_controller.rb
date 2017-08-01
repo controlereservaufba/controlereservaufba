@@ -30,7 +30,42 @@ class ControlesController < ApplicationController
         @reservas = Reserva.all;
         @controle = Controle.find(params[:id])
   end
+  
 
+  
+  def abrir
+     @controle = Controle.find(params[:id])
+     respond_to do |format|
+      if @controle.status  == 'true'
+          menssagem= 'Reserva Já está Aberta!'
+      else
+           @reserva=Reserva.where(id: @controle.reserva_id)
+           @reserva.update(status: true)
+           @controle.update(status: true)
+          menssagem= 'Reserva Aberta com Sucesso!!'  
+       
+      end  
+      format.html { redirect_to "/controles/", notice: menssagem}
+     end  
+  end 
+  
+  def fechar
+     @controle = Controle.find(params[:id])
+     
+     respond_to do |format|
+      if @controle.status  == 'false'
+          menssagem= 'Reserva Já está Fechada!'
+      else
+          @reserva=Reserva.where(id: @controle.reserva_id)
+          @reserva.update(status: false)
+          @controle.update(status: false)
+          menssagem= 'Reserva Fechada com Sucesso!' 
+     
+      end  
+      format.html { redirect_to "/controles/", notice: menssagem}
+     end  
+  end      
+        
   # POST /controles
   # POST /controles.json
   def create

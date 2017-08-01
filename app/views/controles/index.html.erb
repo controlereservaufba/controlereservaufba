@@ -25,8 +25,8 @@
         <%end %>
         <td class="actions">
           <%= link_to 'Visualizar', controle,  class: 'btn btn-warning btn-xs'%>
-          <%= link_to 'Abrir', edit_controle_path(controle), class: 'btn btn-primary btn-xs' %>
-          <%= link_to 'Fechar', edit_controle_path(controle), class: 'btn btn-danger btn-xs' %>
+          <a class="btn btn-primary btn-xs"<%= link_to 'Abrir',abrir_controle_path(controle,:reserva_id => controle.id) %> </a>
+          <a class="btn btn-danger btn-xs"<%= link_to 'Fechar',fechar_controle_path(controle,:reserva_id => controle.id) %> </a>
         </td>
       </tr>
     <% end %>
