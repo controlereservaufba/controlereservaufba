@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   root 'municaos#index'
   resources :controles
   root 'controles#index'
+  resources :cautelas
+  root 'cautelas#index'
   
   devise_scope :user do
     get '/login' => 'devise/sessions#new'

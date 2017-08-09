@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<div id="main" class="container-fluid">
+<h4 class="page-header">Visualizar</h4>
+
+<p>
+  <strong>Militar:</strong>
+  <%= @cautela.militar_id %>
+</p>
+
+<p>
+  <strong>Reserva:</strong>
+  <%= @cautela.reserva_id %>
+</p>
+
+<p>
+  <strong>Data cautela:</strong>
+  <%= @cautela.data_cautela %>
+</p>
+
+<p>
+  <strong>Data fim cautela:</strong>
+  <%= @cautela.data_fim_cautela %>
+</p>
+
+</div>
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', cautelas_path %> </a>

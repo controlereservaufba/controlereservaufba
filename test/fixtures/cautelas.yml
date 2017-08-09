@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  militar_id: 1
+  reserva_id: 1
+  data_cautela: 2017-08-01 23:04:14
+  data_fim_cautela: 2017-08-01 23:04:14
+
+two:
+  militar_id: 1
+  reserva_id: 1
+  data_cautela: 2017-08-01 23:04:14
+  data_fim_cautela: 2017-08-01 23:04:14

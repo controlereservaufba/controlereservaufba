@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801161940) do
+ActiveRecord::Schema.define(version: 20170801230414) do
 
   create_table "acessorios", force: :cascade do |t|
     t.string "descricao"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20170801161940) do
     t.string "serie"
     t.string "modelo"
     t.string "fabricante"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cautelas", force: :cascade do |t|
+    t.integer "militar_id"
+    t.integer "reserva_id"
+    t.datetime "data_cautela"
+    t.datetime "data_fim_cautela"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
