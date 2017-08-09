@@ -1,0 +1,38 @@
+<%= form_with(model: cautelaacessorio, local: true) do |form| %>
+  <% if cautelaacessorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cautelaacessorio.errors.count, "error") %> prohibited this cautelaacessorio from being saved:</h2>
+
+      <ul>
+      <% cautelaacessorio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+    <tr>
+     <td><%= form.label :Cautela %></td>
+     <td class="col-md-9" width="100" ><%= %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :Acessório %></td>
+     <td class="col-md-9" width="100" ><%= collection_select(:cautelaacessorio, :acessorio_id, @acessorios, :id, :descricao) %></td>
+    <tr><td><br></td></tr>
+   
+    <tr>
+     <td><%= form.label :Quantidade %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_acessorio, id: :cautelaacessorio_qtd_acessorio %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :qtd_acessorio_baixa %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_acessorio_baixa, id: :cautelaacessorio_qtd_acessorio_baixa %></td>
+    <tr><td><br></td></tr>
+
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>
