@@ -13,6 +13,8 @@ class CautelasController < ApplicationController
   # GET /cautelas/1
   # GET /cautelas/1.json
   def show
+    @cautelas  = Cautela.find(params[:id])
+    @cautelaacessorios = Cautelaacessorio.where(cautela_id: params[:id]).all
   end
 
   # GET /cautelas/new

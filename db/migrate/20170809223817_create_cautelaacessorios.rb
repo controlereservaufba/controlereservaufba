@@ -6,7 +6,7 @@ class CreateCautelaacessorios < ActiveRecord::Migration[5.1]
       t.integer :qtd_acessorio
       t.integer :qtd_acessorio_baixa
       t.datetime :data_baixa
-      t.boolean :baixa
+      t.boolean :baixa, :default => false
 
       t.timestamps
     end

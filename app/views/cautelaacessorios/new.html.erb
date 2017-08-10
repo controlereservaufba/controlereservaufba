@@ -3,5 +3,5 @@
 
 <%= render 'form', cautelaacessorio: @cautelaacessorio %>
 
- <a class="btn btn-default btn-sm"  <%= link_to 'Voltar', cautelaacessorios_path %></a>
+ <a class="btn btn-default btn-sm"  <%= link_to 'Voltar', cautelaacessorios_path(:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id]) %></a>
 </div>

@@ -31,9 +31,11 @@
               <td> Não Baixado</td>
         <%end%>
         <td class="actions">
-         <%= link_to 'Visualizar', cautelaacessorio_path(cautelaacessorio,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id]),  class: 'btn btn-success btn-xs'%>
-         <%= link_to 'Baixar', edit_cautelaacessorio_path(cautelaacessorio,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id]), class: 'btn btn-primary btn-xs' %>
-        <%= link_to 'Deletar', cautelaacessorio, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
+         <%= link_to 'Visualizar', cautelaacessorio_path(cautelaacessorio,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id],:baixar=>false,:reservaacessorio_id =>cautelaacessorio.reservaacessorio_id),  class: 'btn btn-info btn-xs'%>
+         <% if  cautelaacessorio.baixa !=  true %>
+           <%= link_to 'Baixar', edit_cautelaacessorio_path(cautelaacessorio,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id],:baixar=>true,:reservaacessorio_id =>cautelaacessorio.reservaacessorio_id), class: 'btn btn-primary btn-xs' %>
+           <%= link_to 'Deletar', cautelaacessorio_path(cautelaacessorio,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id],:baixar=>false,:reservaacessorio_id =>cautelaacessorio.reservaacessorio_id), method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
+        <%end%>
         </td>
       </tr>
     <% end %>

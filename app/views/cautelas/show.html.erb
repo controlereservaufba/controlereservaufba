@@ -1,26 +1,40 @@
-<p id="notice"><%= notice %></p>
-<div id="main" class="container-fluid">
-<h4 class="page-header">Visualizar</h4>
+<h4 class="page-header">Itens Cautelados</h4> 
 
-<p>
-  <strong>Militar:</strong>
-  <%= @cautela.militar.nome %>
-</p>
+ <div id="list" class="row">
+ <div class="table-responsive col-md-12">
+ <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
+  <thead>
+     
+      <tr><th>MILITAR: <%= @cautelas.militar.nome%>   /  DATA CAUTELA: <%=formato_data(@cautelas.data_cautela)%><th></tr>
+      <tr><th class="titulo_item" >ACESSÓRIOS</th><th></th><th></th></tr>
+      <tr>
+             <th>Reserva</th>
+             <th>Item</th>
+             <th>Quantidade</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Reserva:</strong>
-  <%= @cautela.reserva.sigla %>
-</p>
+  <tbody>
+    <tr>
+      <% @cautelaacessorios.each do |cautelaacessorios| %>
+      <tr>
+        <td><%=cautelaacessorios.cautela.reserva.sigla %></td>
+        <td><%=cautelaacessorios.reservaacessorio.acessorio.descricao %></td>
+        <td><%= cautelaacessorios.qtd_acessorio %>    </td>
+      </tr>
+      <% end %>
+    </tr>
+    <tr><th class="titulo_item">MUNIÇÃO</th><th></th><th></th></tr>
 
-<p>
-  <strong>Data cautela:</strong>
-  <%= formato_data(@cautela.data_cautela) %>
-</p>
-
-<p>
-  <strong>Data fim cautela:</strong>
-  <%= formato_data(@cautela.data_fim_cautela) %>
-</p>
+     <tr><th class="titulo_item">ARMAMENTO</th></th><th></th><th></th></tr>
+    
+    <tr>
+          <th>Total Geral</th>
+          <th></th>
+    </tr>
+  </tbody>
+</table>
 
 </div>
-<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', cautelas_path %> </a>
+</div>
+ <a class="btn btn-default btn-sm"  <%= link_to 'Voltar', cautelas_path %></a>
