@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cautela_id: 1
+  reservamunicao_id: 1
+  qtd_municao: 1
+  qtd_municao_baixado: 1
+  data_baixa: 2017-08-10 18:17:08
+  baixa: false
+
+two:
+  cautela_id: 1
+  reservamunicao_id: 1
+  qtd_municao: 1
+  qtd_municao_baixado: 1
+  data_baixa: 2017-08-10 18:17:08
+  baixa: false

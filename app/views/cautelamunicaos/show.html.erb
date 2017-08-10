@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<div id="main" class="container-fluid">
+<h4 class="page-header">Visualizar</h4>
+
+<p>
+  <strong>Cautela:</strong>
+<%= @cautelamunicao.cautela_id.to_s+'-'+@cautelamunicao.cautela.militar.nome  %>
+</p>
+
+<p>
+  <strong>Reservamunicao:</strong>
+  <%= @cautelamunicao.reservamunicao_id %>
+</p>
+
+<p>
+  <strong>Qtd municao:</strong>
+  <%= @cautelamunicao.qtd_municao %>
+</p>
+
+<p>
+  <strong>Qtd municao baixado:</strong>
+  <%= @cautelamunicao.qtd_municao_baixado %>
+</p>
+
+<p>
+  <strong>Data baixa:</strong>
+  <%= formato_data(@cautelamunicao.data_baixa) %>
+</p>
+
+<p>
+   <strong>Status:</strong>
+  <%if @cautelamunicao.baixa == true %>
+    Baixado
+  <%else%>
+    Não Baixado
+  <%end%>
+</p>
+
+</div>
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', cautelamunicaos_path %> </a>

@@ -15,6 +15,7 @@ class CautelasController < ApplicationController
   def show
     @cautelas  = Cautela.find(params[:id])
     @cautelaacessorios = Cautelaacessorio.where(cautela_id: params[:id]).all
+    @cautelamunicaos = Cautelamunicao.where(cautela_id: params[:id]).all
   end
 
   # GET /cautelas/new

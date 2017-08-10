@@ -1,0 +1,37 @@
+<%= form_with(model: cautelamunicao, local: true) do |form| %>
+  <% if cautelamunicao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cautelamunicao.errors.count, "error") %> prohibited this cautelamunicao from being saved:</h2>
+
+      <ul>
+      <% cautelamunicao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+    <tr>
+     <td><%= form.label :cautela_id %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :cautela_id,:value => params[:cautela_id],:readonly => true %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :reservamunicao_id %></td>
+     <td class="col-md-9" width="100" ><%= collection_select(:cautelamunicao, :reservamunicao_id, @municaos, :id, :descricao) %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :Quantidade %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_municao, id: :cautelamunicao_qtd_municao %></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :qtd_municao_baixado %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_municao_baixado, id: :cautelamunicao_qtd_municao_baixado %></td>
+    <tr><td><br></td></tr>
+   
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>

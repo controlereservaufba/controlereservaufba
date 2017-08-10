@@ -6,11 +6,12 @@
   <thead>
      
       <tr><th>MILITAR: <%= @cautelas.militar.nome%>   /  DATA CAUTELA: <%=formato_data(@cautelas.data_cautela)%><th></tr>
-      <tr><th class="titulo_item" >ACESSÓRIOS</th><th></th><th></th></tr>
+      <tr><th class="titulo_item" >ACESSÓRIOS</th><th></th><th></th><th></th></tr>
       <tr>
              <th>Reserva</th>
              <th>Item</th>
              <th>Quantidade</th>
+             <th>Status</th>
     </tr>
   </thead>
 
@@ -21,16 +22,34 @@
         <td><%=cautelaacessorios.cautela.reserva.sigla %></td>
         <td><%=cautelaacessorios.reservaacessorio.acessorio.descricao %></td>
         <td><%= cautelaacessorios.qtd_acessorio %>    </td>
+        <%if cautelaacessorios.baixa == true %>
+            <td>   Baixado</td>
+         <%else%>
+              <td> Não Baixado</td>
+        <%end%>
       </tr>
       <% end %>
     </tr>
-    <tr><th class="titulo_item">MUNIÇÃO</th><th></th><th></th></tr>
-
-     <tr><th class="titulo_item">ARMAMENTO</th></th><th></th><th></th></tr>
+    <tr><th class="titulo_item">MUNIÇÃO</th><th></th><th></th><th></th></tr>
+     <% @cautelamunicaos.each do |cautelamunicaos| %>
+      <tr>
+        <td><%=cautelamunicaos.cautela.reserva.sigla %></td>
+        <td><%=cautelamunicaos.reservamunicao.municao.descricao %></td>
+        <td><%= cautelamunicaos.qtd_municao %>    </td>
+        <%if cautelamunicaos.baixa == true %>
+            <td>   Baixado</td>
+        <%else%>
+              <td> Não Baixado</td>
+        <%end%>
+      </tr>
+      <% end %>
+     <tr><th class="titulo_item">ARMAMENTO</th></th><th></th><th></th><th></th></tr>
     
     <tr>
-          <th>Total Geral</th>
-          <th></th>
+      <th>Total Geral</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </tbody>
 </table>

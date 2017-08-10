@@ -1,0 +1,58 @@
+ <p id="notice"><%= notice %></p>
+
+ <h4 class="page-header">Lista Munição</h4>
+
+ <div id="list" class="row">
+ <div class="table-responsive col-md-12">
+ <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
+  <thead>
+    <tr>
+             <th>Cautela-Militar</th>
+              <th>Munição</th>
+             <th>Qtd. Item</th>
+             <th>Qtd. Item Baixado</th>
+             <th>Data Baixa</th>
+             <th>Status</th>
+            <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cautelamunicaos.each do |cautelamunicao| %>
+      <tr>
+        <td><%= cautelamunicao.cautela_id.to_s+"-"+cautelamunicao.cautela.militar.nome  %></td>
+        <td><%= cautelamunicao.reservamunicao.municao.descricao %></td>
+        <td><%= cautelamunicao.qtd_municao%></td>
+        <td><%= cautelamunicao.qtd_municao_baixado %></td>
+        <td><%= formato_data(cautelamunicao.data_baixa) %></td>
+        <%if cautelamunicao.baixa == true %>
+            <td>   Baixado</td>
+        <%else%>
+              <td> Não Baixado</td>
+        <%end%>
+        <td class="actions">
+         <%= link_to 'Visualizar', cautelamunicao,  class: 'btn btn-success btn-xs'%>
+        <% if  cautelamunicao.baixa !=  true %>
+           <%= link_to 'Baixar', edit_cautelamunicao_path(cautelamunicao,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id],:baixar=>true,:reservamunicao_id =>cautelamunicao.reservamunicao_id), class: 'btn btn-primary btn-xs' %>
+           <%= link_to 'Deletar', cautelamunicao_path(cautelamunicao,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id],:baixar=>false,:reservamunicao_id =>cautelamunicao.reservamunicao_id), method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
+        <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- Paginação -->
+ <div class="text-center">
+  <div class="pagination">
+    <table>
+     <tr>
+       <td><%= paginate @cautelamunicaos %></td>
+     <tr>
+    </table>
+  </div>
+ </div>
+<!--Fim Paginação-->
+</div>
+</div>
+<%= link_to 'Novo Iem', new_cautelamunicao_path(:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id]), class: 'btn btn-success btn-sm' %>
+<%= link_to 'Voltar', cautelas_path, class: 'btn btn-default btn-sm' %> 
