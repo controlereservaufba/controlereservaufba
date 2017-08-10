@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 20170809224520) do
 
   create_table "cautelaacessorios", force: :cascade do |t|
     t.integer "cautela_id"
+    t.integer "reservaacessorio_id"
     t.integer "qtd_acessorio"
     t.integer "qtd_acessorio_baixa"
     t.datetime "data_baixa"
     t.boolean "baixa"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "acessorio_id"
   end
 
   create_table "cautelas", force: :cascade do |t|
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170809224520) do
     t.integer "reserva_id"
     t.datetime "data_fechamento"
     t.datetime "data_abertura"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.integer "qtd_municao"
     t.integer "qtd_armamento"
     t.integer "qtd_acessorio"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20170809224520) do
     t.string "sigla"
     t.string "descricao"
     t.integer "user_id"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.datetime "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

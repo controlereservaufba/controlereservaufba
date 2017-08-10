@@ -4,22 +4,22 @@
 
 <p>
   <strong>Militar:</strong>
-  <%= @cautela.militar_id %>
+  <%= @cautela.militar.nome %>
 </p>
 
 <p>
   <strong>Reserva:</strong>
-  <%= @cautela.reserva_id %>
+  <%= @cautela.reserva.sigla %>
 </p>
 
 <p>
   <strong>Data cautela:</strong>
-  <%= @cautela.data_cautela %>
+  <%= formato_data(@cautela.data_cautela) %>
 </p>
 
 <p>
   <strong>Data fim cautela:</strong>
-  <%= @cautela.data_fim_cautela %>
+  <%= formato_data(@cautela.data_fim_cautela) %>
 </p>
 
 </div>

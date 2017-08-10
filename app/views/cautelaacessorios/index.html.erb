@@ -8,8 +8,9 @@
   <thead>
     <tr>
              <th>Cautela-Militar</th>
-             <th>Quantidade Acessórios</th>
-             <th>Quantidade Acessorio Baixados</th>
+              <th>Acessório</th>
+             <th>Qtd. Item</th>
+             <th>Qtd. Item Baixado</th>
              <th>Data Baixa</th>
              <th>Status</th>
             <th colspan="2"></th>
@@ -19,14 +20,20 @@
   <tbody>
     <% @cautelaacessorios.each do |cautelaacessorio| %>
       <tr>
-        <td><%= cautelaacessorio.cautela_id+'-'+cautelaacessorio.cautela.militar.nome  %></td>
+        <td><%= cautelaacessorio.cautela_id.to_s+"-"+cautelaacessorio.cautela.militar.nome  %></td>
+        <td><%= cautelaacessorio.reservaacessorio.acessorio.descricao %></td>
         <td><%= cautelaacessorio.qtd_acessorio %></td>
         <td><%= cautelaacessorio.qtd_acessorio_baixa %></td>
-        <td><%= cautelaacessorio.data_baixa %></td>
-        <td><%= cautelaacessorio.baixa %></td>
+        <td><%= formato_data(cautelaacessorio.data_baixa) %></td>
+        <%if cautelaacessorio.baixa == true %>
+            <td>   Baixado</td>
+        <%else%>
+              <td> Não Baixado</td>
+        <%end%>
         <td class="actions">
-         <%= link_to 'Visualizar', cautelaacessorio,  class: 'btn btn-success btn-xs'%>
-         <%= link_to 'Editar', edit_cautelaacessorio_path(cautelaacessorio), class: 'btn btn-warning btn-xs' %>
+         <%= link_to 'Visualizar', cautelaacessorio_path(cautelaacessorio,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id]),  class: 'btn btn-success btn-xs'%>
+         <%= link_to 'Baixar', edit_cautelaacessorio_path(cautelaacessorio,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id]), class: 'btn btn-primary btn-xs' %>
+        <%= link_to 'Deletar', cautelaacessorio, method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>
     <% end %>
@@ -45,4 +52,5 @@
 <!--Fim Paginação-->
 </div>
 </div>
-<%= link_to 'Novo Cautelaacessorio', new_cautelaacessorio_path, class: 'btn btn-success btn-sm' %>
+<%= link_to 'Novo Item', new_cautelaacessorio_path(:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id]), class: 'btn btn-success btn-sm' %>
+<%= link_to 'Voltar', cautelas_path, class: 'btn btn-default btn-sm' %> 

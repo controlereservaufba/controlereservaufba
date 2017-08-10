@@ -9,8 +9,8 @@
     <tr>
              <th>Militar</th>
              <th>Reserva</th>
-             <th>Data cautela</th>
-             <th>Data fim cautela</th>
+             <th>Data Cautela</th>
+             <th>Data Termino</th>
             <th colspan="2"></th>
     </tr>
   </thead>
@@ -18,16 +18,16 @@
   <tbody>
     <% @cautelas.each do |cautela| %>
       <tr>
-            <td><%= cautela.militar.nome_guerra %></td>
+            <td><%= cautela.militar.nome %></td>
             <td><%= cautela.reserva.sigla %></td>
-            <td><%= cautela.data_cautela %></td>
-            <td><%= cautela.data_fim_cautela %></td>
+            <td><%= formato_data(cautela.data_cautela) %></td>
+            <td><%= formato_data(cautela.data_fim_cautela) %></td>
             <td class="actions">
-             <%= link_to 'Visualizar', cautela,  class: 'btn btn-primary btn-xs'%>
              <%= link_to 'Editar', edit_cautela_path(cautela), class: 'btn btn-warning btn-xs' %>
              <a class="btn btn-success btn-xs"<%= link_to 'Acessórios', {:controller => "cautelaacessorios", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
              <a class="btn btn-success btn-xs"<%= link_to 'Munição', {:controller => "reservamunicaos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
              <a class="btn btn-success btn-xs"<%= link_to 'Armamento', {:controller => "reservaarmamentos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
+             <%= link_to 'Finalizar', edit_cautela_path(cautela), class: 'btn btn-primary btn-xs' %>
             </td>
       </tr>
     <% end %>

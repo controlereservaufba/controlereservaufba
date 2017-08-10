@@ -4,7 +4,7 @@
 
 <p>
   <strong>Cautela-Militar:</strong>
-  <%= @cautelaacessorio.cautela_id+'-'+@cautelaacessorio.cautela.militar.nome  %>
+  <%= @cautelaacessorio.cautela_id.to_s+'-'+@cautelaacessorio.cautela.militar.nome  %>
 </p>
 
 <p>
@@ -19,13 +19,17 @@
 
 <p>
   <strong>Data baixa:</strong>
-  <%= @cautelaacessorio.data_baixa %>
+  <%= formato_data(@cautelaacessorio.data_baixa) %>
 </p>
 
 <p>
-  <strong>Baixa:</strong>
-  <%= @cautelaacessorio.baixa %>
+  <strong>Status:</strong>
+  <%if @cautelaacessorio.baixa == true %>
+    Baixado
+  <%else%>
+    Não Baixado
+  <%end%>
 </p>
 
 </div>
-<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', cautelaacessorios_path %> </a>
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', cautelaacessorios_path(:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id]) %> </a>

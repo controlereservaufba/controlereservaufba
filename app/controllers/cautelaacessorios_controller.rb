@@ -14,14 +14,18 @@ class CautelaacessoriosController < ApplicationController
 
   # GET /cautelaacessorios/new
   def new
-    @acessorios  = Reservacessorio.where(reserva_id: params[:reserva_id]).all
     @cautelas  = Cautela.all
+    @acessorios  = Reservaacessorio.select("reservaacessorios.id id , acessorios.descricao descricao")
+                                    .joins("JOIN acessorios ON acessorios.id=reservaacessorios.acessorio_id")
+                                    .where("reservaacessorios.reserva_id=:reserva_id",{reserva_id: params[:reserva_id]}).all
     @cautelaacessorio = Cautelaacessorio.new
   end
 
   # GET /cautelaacessorios/1/edit
   def edit
-    @acessorios  = Reservacessorio.where(reserva_id: params[:reserva_id]).all
+    @acessorios  = Reservaacessorio.select("reservaacessorios.id id , acessorios.descricao descricao")
+                                    .joins("JOIN acessorios ON acessorios.id=reservaacessorios.acessorio_id")
+                                    .where("reservaacessorios.reserva_id=:reserva_id",{reserva_id: params[:reserva_id]}).all
     @cautelas  = Cautela.all
     @cautelaacessorio = Cautelaacessorio .find(params[:id])
   end
