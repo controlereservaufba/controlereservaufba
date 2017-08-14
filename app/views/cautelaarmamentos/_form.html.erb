@@ -1,0 +1,40 @@
+<%= form_with(model: cautelaarmamento, local: true) do |form| %>
+  <% if cautelaarmamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cautelaarmamento.errors.count, "error") %> prohibited this cautelaarmamento from being saved:</h2>
+
+      <ul>
+      <% cautelaarmamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+
+    <tr>
+     <td><%= form.label :Cautela %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :cautela_id,:value => params[:cautela_id],:readonly => true %></td>
+    <tr><td><br></td></tr>
+    
+    <tr>
+     <td><%= form.label :Armamento %></td>
+     <td class="col-md-9" width="100" ><%= collection_select(:cautelaarmamento, :reservaarmamento_id, @armamentos, :id, :descricao) %></td>
+    
+    <tr><td><br></td></tr>
+    
+    <tr>
+     <td><%= form.label :Quantidade %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_armamento, id: :cautelaarmamento_qtd_armamento, :value=>1,:readonly => true%></td>
+    <tr><td><br></td></tr>
+    <tr>
+     <td><%= form.label :qtd_armamento_baixa %></td>
+     <td class="col-md-9" width="100" ><%= form.number_field :qtd_armamento_baixa, id: :cautelaarmamento_qtd_armamento_baixa %></td>
+    <tr><td><br></td></tr>
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>

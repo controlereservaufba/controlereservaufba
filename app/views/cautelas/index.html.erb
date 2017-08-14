@@ -27,7 +27,7 @@
              <%= link_to 'Editar', edit_cautela_path(cautela), class: 'btn btn-warning btn-xs' %>
              <a class="btn btn-success btn-xs"<%= link_to 'Acessórios', {:controller => "cautelaacessorios", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
              <a class="btn btn-success btn-xs"<%= link_to 'Munição', {:controller => "cautelamunicaos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
-             <a class="btn btn-success btn-xs"<%= link_to 'Armamento', {:controller => "reservaarmamentos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
+             <a class="btn btn-success btn-xs"<%= link_to 'Armamento', {:controller => "cautelaarmamentos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
              <%= link_to 'Finalizar', edit_cautela_path(cautela), class: 'btn btn-primary btn-xs' %>
             </td>
       </tr>

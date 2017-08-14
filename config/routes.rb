@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :cautelaarmamentos
   devise_for :users
   resources :application
   root 'application#index'

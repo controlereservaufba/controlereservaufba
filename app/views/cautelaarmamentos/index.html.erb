@@ -1,0 +1,59 @@
+ <p id="notice"><%= notice %></p>
+
+ <h4 class="page-header">Lista de Armamentos</h4>
+
+ <div id="list" class="row">
+ <div class="table-responsive col-md-12">
+ <table class="table table-striped" cellspacing="0" cellpadding="0" width="100%" height="100" >
+  <thead>
+    <tr>
+      <th>Cautela-Militar</th>
+      <th>Armamento</th>
+      <th>Qtd. Item</th>
+      <th>Qtd. Item Baixado</th>
+      <th>Data Baixa</th>
+      <th>Status</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cautelaarmamentos.each do |cautelaarmamento| %>
+      <tr>
+          <td><%= cautelaarmamento.cautela_id.to_s+"-"+cautelaarmamento.cautela.militar.nome  %></td>
+          <td><%= cautelaarmamento.reservaarmamento.armamento.modelo+" - "+cautelaarmamento.reservaarmamento.serie %></td>
+          <td><%= cautelaarmamento.qtd_armamento %></td>
+          <td><%= cautelaarmamento.qtd_armamento_baixa %></td>
+          <td><%= formato_data(cautelaarmamento.data_baixa) %></td>
+          <%if cautelaarmamento.baixa == true %>
+            <td>   Baixado</td>
+         <%else%>
+              <td> Não Baixado</td>
+         <%end%>
+       <td class="actions">
+         <%= link_to 'Visualizar', cautelaarmamento,  class: 'btn btn-success btn-xs'%>
+         <% if  cautelaarmamento.baixa !=  true %>
+           <%= link_to 'Baixar', edit_cautelaarmamento_path(cautelaarmamento,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id],:baixar=>true,:reservaarmamento_id =>cautelaarmamento.reservaarmamento_id), class: 'btn btn-primary btn-xs' %>
+           <%= link_to 'Deletar', cautelaarmamento_path(cautelaarmamento,:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id],:baixar=>false,:reservaarmamento_id =>cautelaarmamento.reservaarmamento_id), method: :delete, data: { confirm: 'Você tem Certeza?'}, class: 'btn btn-danger btn-xs' %>
+         <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- Paginação -->
+ <div class="text-center">
+  <div class="pagination">
+    <table>
+     <tr>
+       <td><%= paginate @cautelaarmamentos %></td>
+     <tr>
+    </table>
+  </div>
+ </div>
+<!--Fim Paginação-->
+</div>
+</div>
+
+<%= link_to 'Novo Item', new_cautelaarmamento_path(:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id]), class: 'btn btn-success btn-sm' %>
+<%= link_to 'Voltar', cautelas_path, class: 'btn btn-default btn-sm' %> 

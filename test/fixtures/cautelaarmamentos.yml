@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cautela_id: 1
+  reservaarmamento_id: 1
+  qtd_armamento: 1
+  qtd_armamento_baixa: 1
+  data_baixa: 2017-08-10 19:18:35
+  baixa: false
+
+two:
+  cautela_id: 1
+  reservaarmamento_id: 1
+  qtd_armamento: 1
+  qtd_armamento_baixa: 1
+  data_baixa: 2017-08-10 19:18:35
+  baixa: false

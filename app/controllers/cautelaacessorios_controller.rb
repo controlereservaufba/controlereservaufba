@@ -86,7 +86,7 @@ class CautelaacessoriosController < ApplicationController
                      mensagem ='A quantidade de item baixados não pode ser maior que a de itens cautelados!'
               end
             end
-          end;
+          end
          
              format.html { redirect_to @cautelaacessorio, notice: mensagem+qtd_realocar.to_s  }
             format.json { render :show, status: :ok, location: @cautelaacessorio }

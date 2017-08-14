@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div id="main" class="container-fluid">
+<h4 class="page-header">Visualizar</h4>
+
+<p>
+  <strong>Cautela:</strong>
+  <%= @cautelaarmamento.cautela_id.to_s+'-'+@cautelaarmamento.cautela.militar.nome  %>
+</p>
+
+<p>
+  <strong>Armamento:</strong>
+  <%= @cautelaarmamento.reservaarmamento.armamento.modelo+" - "+@cautelaarmamento.reservaarmamento.serie %>
+</p>
+
+<p>
+  <strong>Qtd. Item(s):</strong>
+  <%= @cautelaarmamento.qtd_armamento %>
+</p>
+
+<p>
+  <strong>Qtd. Item(s) Baixado(s):</strong>
+  <%= @cautelaarmamento.qtd_armamento_baixa %>
+</p>
+
+<p>
+  <strong>Data Baixa:</strong>
+  <%= @cautelaarmamento.data_baixa %>
+</p>
+
+<p>
+   <strong>status:</strong>
+  <%if @cautelaarmamento.baixa == true %>
+    Baixado
+  <%else%>
+    Não Baixado
+  <%end%>
+</p>
+
+</div>
+
+<a class="btn btn-default btn-sm"  <%= link_to 'Voltar', cautelaarmamentos_path(:reserva_id =>params[:reserva_id], :cautela_id =>params[:cautela_id]) %> </a>
