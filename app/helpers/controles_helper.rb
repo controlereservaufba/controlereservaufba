@@ -1,5 +1,9 @@
 module ControlesHelper
 def formato_data(date)
-  date.strftime("%d/%m/%Y")
+  if date.present?
+   date.strftime("%d/%m/%Y")
+  else
+    ''
+  end 
 end
 end

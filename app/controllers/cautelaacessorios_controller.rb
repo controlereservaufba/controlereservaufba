@@ -50,7 +50,7 @@ class CautelaacessoriosController < ApplicationController
         @reservaacessorio.update(qtd_acessorio: qtd_atualizar)
         mensagem ='O Item foi Adicionado com Sucesso!'
         
-        format.html { redirect_to @cautelaacessorio, notice: mensagem}
+        format.html { redirect_to "/cautelaacessorios?cautela_id="+@cautelaacessorio.cautela_id.to_s+"&reserva_id="+@cautelaacessorio.cautela.reserva_id.to_s, notice: mensagem}
         format.json { render :show, status: :created, location: @cautelaacessorio }
       else
         format.html { render :new }
@@ -88,11 +88,11 @@ class CautelaacessoriosController < ApplicationController
             end
           end
          
-             format.html { redirect_to @cautelaacessorio, notice: mensagem+qtd_realocar.to_s  }
+            format.html { redirect_to "/cautelaacessorios?cautela_id="+@cautelaacessorio.cautela_id.to_s+"&reserva_id="+@cautelaacessorio.cautela.reserva_id.to_s, notice: mensagem}
             format.json { render :show, status: :ok, location: @cautelaacessorio }
         else
           mensagem='Nao sei'
-          format.html { redirect_to @cautelaacessorio, notice: mensagem+qtd_realocar.to_s  }
+            format.html { redirect_to "/cautelaacessorios?cautela_id="+@cautelaacessorio.cautela_id.to_s+"&reserva_id="+@cautelaacessorio.cautela.reserva_id.to_s, notice: mensagem}
             format.json { render :show, status: :ok, location: @cautelaacessorio }
         end
           
@@ -123,7 +123,7 @@ class CautelaacessoriosController < ApplicationController
   
     @cautelaacessorio.destroy
     respond_to do |format|
-      format.html { redirect_to cautelaacessorios_url, notice: mensagem }
+        format.html { redirect_to "/cautelaacessorios?cautela_id="+@cautelaacessorio.cautela_id.to_s+"&reserva_id="+@cautelaacessorio.cautela.reserva_id.to_s, notice: mensagem}
       format.json { head :no_content }
     end
   end

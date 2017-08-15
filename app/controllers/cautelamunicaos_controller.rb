@@ -49,7 +49,7 @@ class CautelamunicaosController < ApplicationController
         @reservamunicao.update(qtd_municao: qtd_atualizar)
         mensagem ='O Item foi Adicionado com Sucesso!'
         
-        format.html { redirect_to @cautelamunicao, notice: mensagem }
+        format.html { redirect_to "/cautelamunicaos?cautela_id="+@cautelamunicao.cautela_id.to_s+"&reserva_id="+@cautelamunicao.cautela.reserva_id.to_s, notice: mensagem}
         format.json { render :show, status: :created, location: @cautelamunicao }
       else
         format.html { render :new }
@@ -88,7 +88,7 @@ class CautelamunicaosController < ApplicationController
               end
             end
           end
-        format.html { redirect_to @cautelamunicao, notice: 'Cautelamunicao was successfully updated.' }
+        format.html { redirect_to "/cautelamunicaos?cautela_id="+@cautelamunicao.cautela_id.to_s+"&reserva_id="+@cautelamunicao.cautela.reserva_id.to_s, notice: mensagem}
         format.json { render :show, status: :ok, location: @cautelamunicao }
       else
         format.html { render :edit }
@@ -117,7 +117,7 @@ class CautelamunicaosController < ApplicationController
               
     @cautelamunicao.destroy
     respond_to do |format|
-      format.html { redirect_to cautelamunicaos_url, notice: mensagem }
+      format.html { redirect_to "/cautelamunicaos?cautela_id="+@cautelamunicao.cautela_id.to_s+"&reserva_id="+@cautelamunicao.cautela.reserva_id.to_s, notice: mensagem}
       format.json { head :no_content }
     end
   end

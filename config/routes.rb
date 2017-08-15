@@ -42,7 +42,13 @@ Rails.application.routes.draw do
      member do
        get 'fechar'=> 'controles#fechar'
        get 'abrir'=> 'controles#abrir'
-      end
-   end
-   
+     end
+ end
+  
+ resources :cautelas do
+     member do
+       get 'finalizar'=> 'cautelas#finalizar'
+    end
+ end
+
 end

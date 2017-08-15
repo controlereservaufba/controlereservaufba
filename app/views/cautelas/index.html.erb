@@ -10,7 +10,7 @@
              <th>Militar</th>
              <th>Reserva</th>
              <th>Data Cautela</th>
-             <th>Data Termino</th>
+             <th>Data Término</th>
             <th colspan="2"></th>
     </tr>
   </thead>
@@ -20,15 +20,17 @@
       <tr>
             <td><%= cautela.militar.nome %></td>
             <td><%= cautela.reserva.sigla %></td>
-            <td><%= formato_data(cautela.data_cautela) %></td>
-            <td><%= formato_data(cautela.data_fim_cautela) %></td>
+            <td><%= formato_data_hora(cautela.data_cautela) %></td>
+            <td><%= formato_data_hora(cautela.data_fim_cautela) %></td>
             <td class="actions">
-              <%= link_to 'Visualizar', cautela, class: 'btn btn-info btn-xs' %>
-             <%= link_to 'Editar', edit_cautela_path(cautela), class: 'btn btn-warning btn-xs' %>
-             <a class="btn btn-success btn-xs"<%= link_to 'Acessórios', {:controller => "cautelaacessorios", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
-             <a class="btn btn-success btn-xs"<%= link_to 'Munição', {:controller => "cautelamunicaos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
-             <a class="btn btn-success btn-xs"<%= link_to 'Armamento', {:controller => "cautelaarmamentos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
-             <%= link_to 'Finalizar', edit_cautela_path(cautela), class: 'btn btn-primary btn-xs' %>
+             <%= link_to 'Visualizar', cautela, class: 'btn btn-info btn-xs' %>
+              <% if  cautela.status=="t" && cautela.data_fim_cautela.nil? %>
+                 <%= link_to 'Editar', edit_cautela_path(cautela), class: 'btn btn-warning btn-xs' %>
+                 <a class="btn btn-success btn-xs"<%= link_to 'Acessórios', {:controller => "cautelaacessorios", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
+                 <a class="btn btn-success btn-xs"<%= link_to 'Munição', {:controller => "cautelamunicaos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
+                 <a class="btn btn-success btn-xs"<%= link_to 'Armamento', {:controller => "cautelaarmamentos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
+                 <%= link_to 'Finalizar', finalizar_cautela_path(cautela), class: 'btn btn-primary btn-xs' %>
+               <% end %>
             </td>
       </tr>
     <% end %>

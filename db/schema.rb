@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170810191835) do
     t.integer "qtd_acessorio"
     t.integer "qtd_acessorio_baixa"
     t.datetime "data_baixa"
-    t.boolean "baixa"
+    t.boolean "baixa", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170810191835) do
     t.integer "qtd_armamento"
     t.integer "qtd_armamento_baixa"
     t.datetime "data_baixa"
-    t.boolean "baixa"
+    t.boolean "baixa", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

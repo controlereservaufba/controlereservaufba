@@ -1,5 +1,7 @@
 module CautelasHelper
- def formato_data(date)
-  date.strftime("%d/%m/%Y")
+ def formato_data_hora(data)
+  if data.present?
+   data.strftime("%d/%m/%Y  %T")
+  end 
  end
 end

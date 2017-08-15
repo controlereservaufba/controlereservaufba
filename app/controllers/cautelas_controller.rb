@@ -5,7 +5,11 @@ class CautelasController < ApplicationController
   # GET /cautelas.json
   def index
     
-    @cautelas = Cautela.page(params['page']).per(7)
+    @cautelas = Cautela.select("cautelas.id,militar_id,cautelas.reserva_id, cautelas.data_cautela",+
+                        "cautelas.data_fim_cautela, controles.status status")
+                       .joins("JOIN controles ON controles.reserva_id = cautelas.reserva_id ")
+                       .order("cautelas.data_cautela desc, cautelas.data_fim_cautela is null")
+                       .page(params['page']).per(7)
     @reservas = Reserva.all
     @militars = Militar.all
   end
@@ -32,6 +36,44 @@ class CautelasController < ApplicationController
     @militars = Militar.all
     @cautela  = Cautela.find(params[:id])
   end
+  
+  def finalizar
+    @cautela  = Cautela.find(params[:id])
+    @cautelaacessorios = Cautelaacessorio.where(cautela_id: params[:id]).all
+    @cautelamunicaos = Cautelamunicao.where(cautela_id: params[:id]).all
+    @cautelaarmamentos = Cautelaarmamento.where(cautela_id: params[:id]).all
+    
+    itens_nao_baixados = 0
+    
+    @cautelaacessorios.each do |cautelaacessorio|
+      if cautelaacessorio.baixa == false
+        itens_nao_baixados = itens_nao_baixados+1
+      end  
+    end  
+    
+    @cautelamunicaos.each do |cautelamunicao|
+      if cautelamunicao.baixa == false
+        itens_nao_baixados = itens_nao_baixados+1
+      end  
+    end  
+    
+    @cautelaarmamentos.each do |cautelaarmamento|
+      if cautelaarmamento.baixa == false
+        itens_nao_baixados = itens_nao_baixados+1
+      end  
+    end
+    
+    respond_to do |format|
+      if itens_nao_baixados == 0
+        @cautela.update(data_fim_cautela: Time.zone.now )
+        format.html { redirect_to "/cautelas", notice: 'A Cautela Foi Finalizada!' }
+        format.json { render :show, status: :ok, location: @cautela }
+      else
+        format.html { redirect_to "/cautelas", notice:'Verifique Se Todos os Itens foram Baixados!' }
+        format.json { render json: @cautela.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # POST /cautelas
   # POST /cautelas.json
@@ -40,7 +82,7 @@ class CautelasController < ApplicationController
 
     respond_to do |format|
       if @cautela.save
-        format.html { redirect_to @cautela, notice: 'Cautela was successfully created.' }
+        format.html { redirect_to "/cautelas", notice: 'Cautela was successfully created.' }
         format.json { render :show, status: :created, location: @cautela }
       else
         format.html { render :new }
@@ -54,7 +96,7 @@ class CautelasController < ApplicationController
   def update
     respond_to do |format|
       if @cautela.update(cautela_params)
-        format.html { redirect_to @cautela, notice: 'Cautela was successfully updated.' }
+        format.html { redirect_to "/cautelas", notice: 'Cautela was successfully updated.' }
         format.json { render :show, status: :ok, location: @cautela }
       else
         format.html { render :edit }
@@ -72,6 +114,9 @@ class CautelasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+ 
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
