@@ -5,7 +5,6 @@ class CreateCautelas < ActiveRecord::Migration[5.1]
       t.integer :reserva_id
       t.datetime :data_cautela
       t.datetime :data_fim_cautela
-
       t.timestamps
     end
   end

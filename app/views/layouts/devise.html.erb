@@ -1,5 +1,6 @@
 <!DOCTYPE html>
  <%if user_signed_in? %>
+<!DOCTYPE html>
 <html>
     <head>
     <title>Controle da Reserva Ufba</title>
@@ -23,7 +24,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/">ontrole da Reserva Ufba</a>
+                        <a class="navbar-brand" href="/">CONTROLE DA RESERVA</a>
                     </div>
                     <div id="navbar-collapse" class="collapse navbar-collapse">
                         
@@ -37,8 +38,8 @@
                                  
                                  <% if user_signed_in? %>
                                 <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                
-                                    <img src="http://laurabethany.com/img/ic-user.png" class="img-responsive img-thumbnail img-circle"><%= current_user.username %></a>
+                        
+                                    <img src="http://laurabethany.com/img/ic-user.png" class="img-responsive img-thumbnail img-circle"><%= current_user.nome %></a>
                                 <ul class="dropdown-menu dropdown-block" role="menu">
                                     
                                     <li><a href="/perfil">Editar Perfil</a></li>
@@ -62,17 +63,24 @@
                             <span class="sidebar-title">Home</span>
                         </a>
                     </li>
+                    
+  
                     <li>
-                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
-                            <span class="sidebar-icon"><i class="fa fa-users"></i></span>
-                            <span class="sidebar-title">Usuários</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="/user"><i class="fa fa-user"></i>Perfis</a></li>
-                        </ul>
+                       <%if can? :admin, User%>
+                           <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
+                               <span class="sidebar-icon"><i class="fa fa-users"></i></span>
+                               <span class="sidebar-title">Usuários</span>
+                               <b class="caret"></b>
+                           </a>
+                          
+                           <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+                               <li><a href="/user"><i class="fa fa-user"></i>Perfis</a></li>
+                           </ul>
+                       <%end%>  
                     </li>
+             
                     <li>
+                        <%if can? :admin_reserva, User%>
                         <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">
                             <span class="sidebar-icon"><i class="fa fa-list"></i></span>
                             <span class="sidebar-title">Cadastros</span>
@@ -89,7 +97,9 @@
                                        <li><a href="/armamentos"><i class="fa fa-exchange"></i>Armas</a></li>
                                  </ul>
                              </li>
+                        
                         </ul>
+                        <%end%>
                     </li>
                     <li>
                         <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-4">
@@ -98,9 +108,11 @@
                             <b class="caret"></b>
                         </a>
                         <ul id="submenu-4" class="panel-collapse collapse panel-switch" role="menu">
+                             <%if can? :admin_reserva, User%>
                               <li><a href="/reservas"><i class="fa fa-pencil-square-o"></i>Cadastro</a></li>
-                              <li><a href="/"><i class="fa fa-exchange"></i>Controle</a></li>
-                             <li><a href="/"><i class="fa fa-male"></i>Cautela</a></li>
+                            <%end%>
+                              <li><a href="/controles"><i class="fa fa-exchange"></i>Controle</a></li>
+                             <li><a href="/cautelas"><i class="fa fa-male"></i>Cautela</a></li>
                         </ul>
                     </li>
                     <li>
@@ -110,7 +122,7 @@
                             <b class="caret"></b>
                           </a>
                         <ul id="submenu-5" class="panel-collapse collapse panel-switch" role="menu">
-                             <li><a href="/"><i class="fa fa-github"></i>GitHub</a></li>
+                             <li><a href="https://github.com/controlereservaufba"><i class="fa fa-github"></i>GitHub</a></li>
                         </ul>
                     </li>
                 </ul>

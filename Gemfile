@@ -9,7 +9,7 @@ end
 #Bibliotecas de autenticacao
 gem 'devise'
 gem 'devise-i18n'
-#gem 'cancancan'
+gem 'cancancan'
  
 #Biblioteca de internacionalização 
 gem 'rails-i18n'

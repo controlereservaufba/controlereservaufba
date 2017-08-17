@@ -21,7 +21,7 @@
      <td class="col-md-9" width="100" ><%= collection_select(:cautela, :reserva_id, @reservas, :id, :sigla ) %></td>
     <tr><td><br></td></tr>
     <tr>
-     <td><%= form.label :data_cautela %></td>
+     <td><%= form.label :data_cautela,"Data Cautela" %></td>
      <td class="col-md-9" width="100" ><%= form.datetime_select :data_cautela, id: :cautela_data_cautela %></td>
     <tr><td><br></td></tr>
 
