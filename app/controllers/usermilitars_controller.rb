@@ -15,14 +15,14 @@ class UsermilitarsController < ApplicationController
   # GET /usermilitars/new
   def new
     @militar  = Militar.all
-    @user     = User.select("nome||' - '||email nome").all
+    @user     = User.select("id,nome||' - '||email nome").all
     @usermilitar = Usermilitar.new
   end
 
   # GET /usermilitars/1/edit
   def edit
     @militar  = Militar.all
-    @user     = User.select("nome||' - '||email nome").all
+    @user     = User.select("id,nome||' - '||email nome").all
     @usermilitar = Usermilitar.find(params[:id])
   end
   

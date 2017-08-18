@@ -4,18 +4,14 @@
 
 <p>
   <strong>Militar:</strong>
-  <%= @usermilitar.militar_id %>
+  <%= @usermilitar.militar.nome %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @usermilitar.user_id %>
+  <%= @usermilitar.user.nome %>
 </p>
 
-<p>
-  <strong>Data:</strong>
-  <%= @usermilitar.data %>
-</p>
 
 </div>
 <a class="btn btn-default btn-sm"  <%= link_to 'Voltar', usermilitars_path %> </a>
