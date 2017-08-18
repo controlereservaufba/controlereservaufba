@@ -5,13 +5,26 @@ class CautelasController < ApplicationController
   # GET /cautelas.json
   def index
     
-    @cautelas = Cautela.select("cautelas.id,militar_id,cautelas.reserva_id, cautelas.data_cautela",+
-                        "cautelas.data_fim_cautela, controles.status status")
-                       .joins("JOIN controles ON controles.reserva_id = cautelas.reserva_id ")
-                       .order("cautelas.data_cautela desc, cautelas.data_fim_cautela is null")
-                       .page(params['page']).per(7)
-    @reservas = Reserva.all
-    @militars = Militar.all
+   if can? :admin_reserva, Cautela
+        
+    @cautelas = Cautela.select("cautelas.id,cautelas.militar_id,cautelas.reserva_id, cautelas.data_cautela",+
+                          "cautelas.data_fim_cautela, controles.status status")
+                         .joins("JOIN controles ON controles.reserva_id = cautelas.reserva_id ")
+                         .order("cautelas.data_cautela desc, cautelas.data_fim_cautela is null")
+                         .page(params['page']).per(7)
+   else
+     @cautelas = Cautela.select("cautelas.id,cautelas.militar_id,cautelas.reserva_id, cautelas.data_cautela",+
+                            "cautelas.data_fim_cautela, controles.status status")
+                           .joins("JOIN controles ON controles.reserva_id = cautelas.reserva_id ")
+                           .joins("JOIN usermilitars ON usermilitars.militar_id = cautelas.militar_id ")
+                           .where("usermilitars.user_id=:user_id",{user_id:current_user.id}).all
+                           .order("cautelas.data_cautela desc, cautelas.data_fim_cautela is null")
+                           .page(params['page']).per(7)                          
+        
+   end
+   @reservas = Reserva.all
+   @militars = Militar.all
+    
   end
 
   # GET /cautelas/1

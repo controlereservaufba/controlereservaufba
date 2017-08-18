@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :cautelaarmamentos
+
   devise_for :users
   resources :application
   root 'application#index'
@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   root 'cautelas#index'
   resources :cautelamunicaos
   resources :cautelaacessorios
+  resources :usermilitars
+  resources :cautelaarmamentos
   
   devise_scope :user do
     get '/login' => 'devise/sessions#new'

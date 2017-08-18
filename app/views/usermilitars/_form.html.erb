@@ -1,0 +1,30 @@
+<%= form_with(model: usermilitar, local: true) do |form| %>
+  <% if usermilitar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(usermilitar.errors.count, "error") %> prohibited this usermilitar from being saved:</h2>
+
+      <ul>
+      <% usermilitar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+    <tr>
+     <td><%= form.label :Militar %></td>
+     <td class="col-md-9" width="100" ><%= collection_select(:usermilitar, :militar_id, @militar, :id, :nome) %></td>
+    <tr><td><br></td></tr>
+    
+    <tr>
+     <td><%= form.label :Usuário %></td>
+      <td class="col-md-9" width="100" ><%= collection_select(:usermilitar, :user_id, @user, :id, :nome) %></td>
+    <tr><td><br></td></tr>
+
+</table>
+  
+  <div class="actions">
+    <%= form.submit class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>

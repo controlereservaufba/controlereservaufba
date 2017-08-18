@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  militar_id: 1
+  user_id: 1
+  data: 2017-08-18 01:54:40
+
+two:
+  militar_id: 1
+  user_id: 1
+  data: 2017-08-18 01:54:40

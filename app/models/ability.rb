@@ -8,7 +8,7 @@ class Ability
       can :manage, :all
     end
     
-    if user.admin_reserva?  
+    if user.admin_reserva?  or  user.admin? 
        alias_action  :create, :read, :update, :destroy, :to => :admin_reserva 
        can :admin_reserva, Acessorio
        can :admin_reserva, Municao

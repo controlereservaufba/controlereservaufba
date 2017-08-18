@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(nome: 'Admin',username:'admin', email:'admin@admin.com.br', password:'admin1', admin:true )
+Usermilitar.create(militar_id:1,user_id:2)
 

@@ -66,17 +66,20 @@
                     
   
                     <li>
-                       <%if can? :admin, User%>
+                           <%if can? :admin_reserva, User%>
                            <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
                                <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                <span class="sidebar-title">Usuários</span>
                                <b class="caret"></b>
                            </a>
-                          
-                           <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
-                               <li><a href="/user"><i class="fa fa-user"></i>Perfis</a></li>
-                           </ul>
-                       <%end%>  
+                      
+                               <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+                                  <%if can? :admin, User%>
+                                   <li><a href="/user"><i class="fa fa-user"></i>Perfis</a></li>
+                                  <%end%> 
+                                   <li><a href="/usermilitars"><i class="fa fa-user"></i>Associar</a></li>
+                               </ul>
+                          <%end%> 
                     </li>
              
                     <li>

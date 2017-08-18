@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810191835) do
+ActiveRecord::Schema.define(version: 20170818015440) do
 
   create_table "acessorios", force: :cascade do |t|
     t.string "descricao"
@@ -127,6 +127,14 @@ ActiveRecord::Schema.define(version: 20170810191835) do
     t.string "descricao"
     t.integer "user_id"
     t.boolean "status", default: true
+    t.datetime "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "usermilitars", force: :cascade do |t|
+    t.integer "militar_id"
+    t.integer "user_id"
     t.datetime "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
