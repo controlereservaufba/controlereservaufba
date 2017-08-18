@@ -33,7 +33,7 @@ class ReservaarmamentosController < ApplicationController
 
     respond_to do |format|
       if @reservaarmamento.save
-        format.html { redirect_to @reservaarmamento, notice: 'Reservaarmamento was successfully created.' }
+        format.html { redirect_to "/reservaarmamentos?reserva_id="+@reservaarmamento.reserva_id.to_s,notice: 'Item criado com sucesso!' }
         format.json { render :show, status: :created, location: @reservaarmamento }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class ReservaarmamentosController < ApplicationController
   def update
     respond_to do |format|
       if @reservaarmamento.update(reservaarmamento_params)
-        format.html { redirect_to @reservaarmamento, notice: 'Reservaarmamento was successfully updated.' }
+        format.html { redirect_to "/reservaarmamentos?reserva_id="+@reservaarmamento.reserva_id.to_s,notice: 'Item Editado com sucesso!' }
         format.json { render :show, status: :ok, location: @reservaarmamento }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class ReservaarmamentosController < ApplicationController
   def destroy
     @reservaarmamento.destroy
     respond_to do |format|
-      format.html { redirect_to reservaarmamentos_url, notice: 'Reservaarmamento was successfully destroyed.' }
+      format.html { redirect_to "/reservaarmamentos?reserva_id="+@reservaarmamento.reserva_id.to_s,notice: 'Item Deletado com sucesso!' }
       format.json { head :no_content }
     end
   end

@@ -28,9 +28,13 @@ Rails.application.routes.draw do
   resources :cautelas
   root 'cautelas#index'
   resources :cautelamunicaos
+  root 'cautelamunicaos#index'
   resources :cautelaacessorios
+  root 'cautelaacessorios#index'
   resources :usermilitars
+  root 'usermilitars#index'
   resources :cautelaarmamentos
+  root 'cautelaarmamentos#index'
   
   devise_scope :user do
     get '/login' => 'devise/sessions#new'

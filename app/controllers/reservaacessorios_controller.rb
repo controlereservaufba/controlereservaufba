@@ -36,7 +36,7 @@ class ReservaacessoriosController < ApplicationController
     @reservaacessorio = Reservaacessorio.new(reservaacessorio_params)
     respond_to do |format|
       if @reservaacessorio.save
-        format.html { redirect_to "/reservaacessorios?reserva_id="+@reservaacessorio.reserva_id.to_s,notice: 'Item cridao com sucesso!' }
+        format.html { redirect_to "/reservaacessorios?reserva_id="+@reservaacessorio.reserva_id.to_s,notice: 'Item criado com sucesso!' }
         format.json { render :show, status: :created, location: @reservaacessorio }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class ReservaacessoriosController < ApplicationController
   def update
     respond_to do |format|
       if @reservaacessorio.update(reservaacessorio_params)
-        format.html { redirect_to "/reservaacessorios?reserva_id="+@reservaacessorio.reserva_id.to_s, notice: 'Reservaacessoriosss was successfully updated.'}
+        format.html { redirect_to "/reservaacessorios?reserva_id="+@reservaacessorio.reserva_id.to_s, notice: 'Item Editado Com Sucesso!'}
         format.json { render :show, status: :ok, location: @reservaacessorio }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class ReservaacessoriosController < ApplicationController
   def destroy
     @reservaacessorio.destroy
     respond_to do |format|
-       format.html { redirect_to "/reservaacessorios?reserva_id="+@reservaacessorio.reserva_id.to_s, notice: 'Reservaacessorio was successfully destroyed.' }
+       format.html { redirect_to "/reservaacessorios?reserva_id="+@reservaacessorio.reserva_id.to_s, notice: 'Item deletado com Sucesso!' }
       format.json { head :no_content }
     end
   end

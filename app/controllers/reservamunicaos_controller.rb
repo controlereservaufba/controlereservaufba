@@ -36,7 +36,7 @@ class ReservamunicaosController < ApplicationController
 
     respond_to do |format|
       if @reservamunicao.save
-        format.html { redirect_to @reservamunicao, notice: 'Reservamunicao was successfully created.' }
+        format.html { redirect_to "/reservamunicaos?reserva_id="+@reservamunicao.reserva_id.to_s,notice: 'Item criado com sucesso!' }
         format.json { render :show, status: :created, location: @reservamunicao }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class ReservamunicaosController < ApplicationController
   def update
     respond_to do |format|
       if @reservamunicao.update(reservamunicao_params)
-        format.html { redirect_to @reservamunicao, notice: 'Reservamunicao was successfully updated.' }
+        format.html { redirect_to "/reservamunicaos?reserva_id="+@reservamunicao.reserva_id.to_s,notice: 'Item Editado com sucesso!' }
         format.json { render :show, status: :ok, location: @reservamunicao }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class ReservamunicaosController < ApplicationController
   def destroy
     @reservamunicao.destroy
     respond_to do |format|
-      format.html { redirect_to reservamunicaos_url, notice: 'Reservamunicao was successfully destroyed.' }
+      format.html { redirect_to "/reservamunicaos?reserva_id="+@reservamunicao.reserva_id.to_s,notice: 'Item Deletado com sucesso!' }
       format.json { head :no_content }
     end
   end

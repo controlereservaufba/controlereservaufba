@@ -95,7 +95,7 @@ class CautelasController < ApplicationController
 
     respond_to do |format|
       if @cautela.save
-        format.html { redirect_to "/cautelas", notice: 'Cautela was successfully created.' }
+        format.html { redirect_to "/cautelas", notice: 'A Cautela foi Criada Com Sucesso!' }
         format.json { render :show, status: :created, location: @cautela }
       else
         format.html { render :new }
@@ -109,7 +109,7 @@ class CautelasController < ApplicationController
   def update
     respond_to do |format|
       if @cautela.update(cautela_params)
-        format.html { redirect_to "/cautelas", notice: 'Cautela was successfully updated.' }
+        format.html { redirect_to "/cautelas", notice: 'A Cautela foi Editada Com Sucesso!' }
         format.json { render :show, status: :ok, location: @cautela }
       else
         format.html { render :edit }
@@ -123,7 +123,7 @@ class CautelasController < ApplicationController
   def destroy
     @cautela.destroy
     respond_to do |format|
-      format.html { redirect_to cautelas_url, notice: 'Cautela was successfully destroyed.' }
+      format.html { redirect_to cautelas_url, notice:'A Cautela foi Deletada Com Sucesso!' }
       format.json { head :no_content }
     end
   end

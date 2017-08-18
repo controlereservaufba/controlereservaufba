@@ -41,7 +41,7 @@ class ReservasController < ApplicationController
         @controle.save
       end  
       
-        format.html { redirect_to @reserva, notice: 'Reserva was successfully created.' }
+        format.html { redirect_to @reserva, notice: 'A Reserva foi Criada Com Sucesso!' }
         format.json { render :show, status: :created, location: @reserva }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class ReservasController < ApplicationController
   def update
     respond_to do |format|
       if @reserva.update(reserva_params)
-        format.html { redirect_to @reserva, notice: 'Reserva was successfully updated.' }
+        format.html { redirect_to @reserva, notice: 'A Reserva foi Editada Com Sucesso!' }
         format.json { render :show, status: :ok, location: @reserva }
       else
         format.html { render :edit }
@@ -79,7 +79,7 @@ class ReservasController < ApplicationController
       
     @reserva.destroy
     respond_to do |format|
-      format.html { redirect_to reservas_url, notice: 'Reserva was successfully destroyed.' }
+      format.html { redirect_to reservas_url, notice: 'A Reserva foi Deletada Com Sucesso!' }
       format.json { head :no_content }
     end
   end
