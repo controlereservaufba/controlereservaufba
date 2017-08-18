@@ -34,7 +34,7 @@ class UsermilitarsController < ApplicationController
 
     respond_to do |format|
       if @usermilitar.save
-        format.html { redirect_to @usermilitar, notice: 'Usermilitar was successfully created.' }
+        format.html { redirect_to @usermilitar, notice: 'Relação Criada com Sucesso!' }
         format.json { render :show, status: :created, location: @usermilitar }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class UsermilitarsController < ApplicationController
   def update
     respond_to do |format|
       if @usermilitar.update(usermilitar_params)
-        format.html { redirect_to @usermilitar, notice: 'Usermilitar was successfully updated.' }
+        format.html { redirect_to @usermilitar, notice: 'Relação Editada com Sucesso!' }
         format.json { render :show, status: :ok, location: @usermilitar }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class UsermilitarsController < ApplicationController
   def destroy
     @usermilitar.destroy
     respond_to do |format|
-      format.html { redirect_to usermilitars_url, notice: 'Usermilitar was successfully destroyed.' }
+      format.html { redirect_to usermilitars_url, notice: 'Relação Deletada com Sucesso!' }
       format.json { head :no_content }
     end
   end
