@@ -28,7 +28,7 @@ class AcessoriosController < ApplicationController
 
     respond_to do |format|
       if @acessorio.save
-        format.html { redirect_to @acessorio, notice: 'Acessorio was successfully created.' }
+        format.html { redirect_to @acessorio, notice: 'O Acessório foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @acessorio }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AcessoriosController < ApplicationController
   def update
     respond_to do |format|
       if @acessorio.update(acessorio_params)
-        format.html { redirect_to @acessorio, notice: 'Acessorio was successfully updated.' }
+        format.html { redirect_to @acessorio, notice: 'O Acessório foi editado com sucesso!'}
         format.json { render :show, status: :ok, location: @acessorio }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class AcessoriosController < ApplicationController
   def destroy
     @acessorio.destroy
     respond_to do |format|
-      format.html { redirect_to acessorios_url, notice: 'Acessorio was successfully destroyed.' }
+      format.html { redirect_to acessorios_url, notice: 'O Acessório foi deletado com sucesso!' }
       format.json { head :no_content }
     end
   end

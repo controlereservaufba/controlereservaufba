@@ -28,7 +28,7 @@ class ArmamentosController < ApplicationController
 
     respond_to do |format|
       if @armamento.save
-        format.html { redirect_to @armamento, notice: 'Armamento was successfully created.' }
+        format.html { redirect_to @armamento, notice: 'O Armamento foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @armamento }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ArmamentosController < ApplicationController
   def update
     respond_to do |format|
       if @armamento.update(armamento_params)
-        format.html { redirect_to @armamento, notice: 'Armamento was successfully updated.' }
+        format.html { redirect_to @armamento, notice: 'O Armamento foi editado com sucesso!' }
         format.json { render :show, status: :ok, location: @armamento }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ArmamentosController < ApplicationController
   def destroy
     @armamento.destroy
     respond_to do |format|
-      format.html { redirect_to armamentos_url, notice: 'Armamento was successfully destroyed.' }
+      format.html { redirect_to armamentos_url, notice: 'O Armamento foi deletado com sucesso!' }
       format.json { head :no_content }
     end
   end

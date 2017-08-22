@@ -28,7 +28,7 @@ class MunicaosController < ApplicationController
 
     respond_to do |format|
       if @municao.save
-        format.html { redirect_to @municao, notice: 'Municao was successfully created.' }
+        format.html { redirect_to @municao, notice: 'A Munição foi criada com sucesso!' }
         format.json { render :show, status: :created, location: @municao }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MunicaosController < ApplicationController
   def update
     respond_to do |format|
       if @municao.update(municao_params)
-        format.html { redirect_to @municao, notice: 'Municao was successfully updated.' }
+        format.html { redirect_to @municao, notice: 'A Munição foi editada com sucesso!' }
         format.json { render :show, status: :ok, location: @municao }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MunicaosController < ApplicationController
   def destroy
     @municao.destroy
     respond_to do |format|
-      format.html { redirect_to municaos_url, notice: 'Municao was successfully destroyed.' }
+      format.html { redirect_to municaos_url, notice: 'A Munição foi deletada com sucesso!' }
       format.json { head :no_content }
     end
   end

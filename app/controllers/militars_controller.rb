@@ -28,7 +28,7 @@ class MilitarsController < ApplicationController
 
     respond_to do |format|
       if @militar.save
-        format.html { redirect_to @militar, notice: 'Militar was successfully created.' }
+        format.html { redirect_to @militar, notice: 'O Militar foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @militar }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MilitarsController < ApplicationController
   def update
     respond_to do |format|
       if @militar.update(militar_params)
-        format.html { redirect_to @militar, notice: 'Militar was successfully updated.' }
+        format.html { redirect_to @militar, notice: 'O Militar foi editado com sucesso!' }
         format.json { render :show, status: :ok, location: @militar }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MilitarsController < ApplicationController
   def destroy
     @militar.destroy
     respond_to do |format|
-      format.html { redirect_to militars_url, notice: 'Militar was successfully destroyed.' }
+      format.html { redirect_to militars_url, notice: 'O Militar foi deletado com sucesso!' }
       format.json { head :no_content }
     end
   end
