@@ -15,8 +15,14 @@
  */
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
 
+@import "bootstrap";
+@import "bootstrap-responsive";
+	
+
+
 body {
     background: lightgray;
+
 }
 
 .navbar-fixed-top {

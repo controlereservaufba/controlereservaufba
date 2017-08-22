@@ -33,16 +33,19 @@ class ReservamunicaosController < ApplicationController
   # POST /reservamunicaos.json
   def create
     @reservamunicao = Reservamunicao.new(reservamunicao_params)
-
-    respond_to do |format|
-      if @reservamunicao.save
-        format.html { redirect_to "/reservamunicaos?reserva_id="+@reservamunicao.reserva_id.to_s,notice: 'Item criado com sucesso!' }
-        format.json { render :show, status: :created, location: @reservamunicao }
-      else
-        format.html { render :new }
-        format.json { render json: @reservamunicao.errors, status: :unprocessable_entity }
+    if  @reservamunicao.qtd_municao.nil? ||@reservamunicao.qtd_municao<=0
+      redirect_to "/reservamunicaos?reserva_id="+@reservamunicao.reserva_id.to_s,notice: 'Informe uma quantidade válida!' 
+    else 
+      respond_to do |format|
+        if @reservamunicao.save
+          format.html { redirect_to "/reservamunicaos?reserva_id="+@reservamunicao.reserva_id.to_s,notice: 'Item criado com sucesso!' }
+          format.json { render :show, status: :created, location: @reservamunicao }
+        else
+          format.html { render :new }
+          format.json { render json: @reservamunicao.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    end  
   end
 
   # PATCH/PUT /reservamunicaos/1

@@ -29,17 +29,22 @@ class ReservaarmamentosController < ApplicationController
   # POST /reservaarmamentos
   # POST /reservaarmamentos.json
   def create
-    @reservaarmamento = Reservaarmamento.new(reservaarmamento_params)
-
-    respond_to do |format|
-      if @reservaarmamento.save
-        format.html { redirect_to "/reservaarmamentos?reserva_id="+@reservaarmamento.reserva_id.to_s,notice: 'Item criado com sucesso!' }
-        format.json { render :show, status: :created, location: @reservaarmamento }
-      else
-        format.html { render :new }
-        format.json { render json: @reservaarmamento.errors, status: :unprocessable_entity }
-      end
-    end
+   @reservaarmamento = Reservaarmamento.new(reservaarmamento_params)
+   serie=@reservaarmamento.serie
+   if serie.blank?
+      redirect_to "/reservaarmamentos?reserva_id="+@reservaarmamento.reserva_id.to_s,notice: 'Informe um número de série!' 
+   else 
+    
+       respond_to do |format|
+       if @reservaarmamento.save
+         format.html { redirect_to "/reservaarmamentos?reserva_id="+@reservaarmamento.reserva_id.to_s,notice: 'Item criado com sucesso!' }
+         format.json { render :show, status: :created, location: @reservaarmamento }
+       else
+         format.html { render :new }
+         format.json { render json: @reservaarmamento.errors, status: :unprocessable_entity }
+       end
+     end
+   end  
   end
 
   # PATCH/PUT /reservaarmamentos/1

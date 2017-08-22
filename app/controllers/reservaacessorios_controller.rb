@@ -32,31 +32,36 @@ class ReservaacessoriosController < ApplicationController
   # POST /reservaacessorios
   # POST /reservaacessorios.json
   def create
-        
-    @reservaacessorio = Reservaacessorio.new(reservaacessorio_params)
-    respond_to do |format|
-      if @reservaacessorio.save
-        format.html { redirect_to "/reservaacessorios?reserva_id="+@reservaacessorio.reserva_id.to_s,notice: 'Item criado com sucesso!' }
-        format.json { render :show, status: :created, location: @reservaacessorio }
-      else
-        format.html { render :new }
-        format.json { render json: @reservaacessorio.errors, status: :unprocessable_entity }
-      end
-    end
-   
-   #Atualização da reserva total quando há a inclusão de um novo acessorio 
-     @controle = Controle.where(reserva_id: @reservaacessorio.reserva_id) 
-     @controle.each do |controle|
-       qtd = controle.qtd_acessorio
-       qtd= qtd + @reservaacessorio.qtd_acessorio
-       @controle.update(qtd_acessorio: qtd)
-    end
-    
-  end
+        @reservaacessorio = Reservaacessorio.new(reservaacessorio_params)
+
+       if  @reservaacessorio.qtd_acessorio.nil? ||@reservaacessorio.qtd_acessorio<=0
+        redirect_to "/reservaacessorios?reserva_id="+@reservaacessorio.reserva_id.to_s,notice: 'Informe uma quantidade válida!' 
+       else 
+          respond_to do |format|
+            
+            if @reservaacessorio.save
+              format.html { redirect_to "/reservaacessorios?reserva_id="+@reservaacessorio.reserva_id.to_s,notice: 'Item criado com sucesso!' }
+              format.json { render :show, status: :created, location: @reservaacessorio }
+            else
+              format.html { render :new }
+              format.json { render json: @reservaacessorio.errors, status: :unprocessable_entity }
+            end
+          end  
+     
+          #Atualização da reserva total quando há a inclusão de um novo acessorio 
+         # @controle = Controle.where(reserva_id: @reservaacessorio.reserva_id) 
+         # @controle.each do |controle|
+         #    qtd = controle.qtd_acessorio
+         #    qtd= qtd + @reservaacessorio.qtd_acessorio
+         #    @controle.update(qtd_acessorio: qtd)
+         # end
+       end
+  end       
 
   # PATCH/PUT /reservaacessorios/1
   # PATCH/PUT /reservaacessorios/1.json
   def update
+    
     respond_to do |format|
       if @reservaacessorio.update(reservaacessorio_params)
         format.html { redirect_to "/reservaacessorios?reserva_id="+@reservaacessorio.reserva_id.to_s, notice: 'Item Editado Com Sucesso!'}

@@ -15,13 +15,18 @@
 <table>
    <tr>
     <td><%= f.label :nome,"Nome" %></td>
-    <td class="col-md-10" width="100" > <%= f.text_field :nome %></td>
+    <td class="col-md-10" width="100" > <%= f.text_field :nome,:readonly=>true %></td>
    </tr>
    <tr><td><br></td></tr>
    
    <tr>
      <td><%= f.label :email,"E-mail" %></td>
-     <td class="col-md-10" width="100" ><%= f.text_field :email, id: :user_email %></td>
+     <td class="col-md-10" width="100" ><%= f.text_field :email, id: :user_email, :readonly=>true%></td>
+    </tr>
+   <tr><td><br></td></tr>
+   <tr>
+     <td><%= f.label :username,"Username" %></td>
+     <td class="col-md-10" width="100" ><%= f.text_field :username, id: :username,:readonly=>true %></td>
     </tr>
    <tr><td><br></td></tr>
    </table>
