@@ -6,16 +6,21 @@ git_source(:github) do |repo_name|
 end
 
 
-#Bibliotecas de autenticacao
-gem 'devise'
-gem 'devise-i18n'
-gem 'cancancan'
- 
+# Gems do projeto
+gem 'remotipart', github: 'mshibuya/remotipart'
+
 #Biblioteca de internacionalização 
 gem 'rails-i18n'
 
+# Gem Paginação
 gem 'kaminari'
 gem 'kaminari-i18n'
+
+
+#Gem Autenticação
+gem "devise"
+gem 'devise-i18n'
+gem 'cancancan'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
