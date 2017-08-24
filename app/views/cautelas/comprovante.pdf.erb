@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<meta charset="utf-8"/>
+<head>
+<title>Comprovante Itens Cautelados</title>
+</head>
+
+<body>
+  <header>
+    <table>
+    <tr>
+      <td><%= wicked_pdf_image_tag 'images/logo.jpg', :width => "800px",  :height=>"90" %></td>
+    </tr>
+    <tr>
+      <td width = "100%" align="center"><b>COMPROVANTE DE ITENS CAUTELADOS</b></td>
+    </tr>
+    </table>
+  </header>  
+  <br />
+  <table class="table table-striped" cellspacing="2" cellpadding="0" width="100%" height="100" >
+      <tr><td colspan="4" algin ="left">MILITAR: <%= @cautelas.militar.nome%>   /  DATA CAUTELA: <%=formato_data_hora(@cautelas.data_cautela)%><td></tr>
+      <tr><td colspan="4" algin ="left"><b>ACESSÓRIOS</b></td></tr>
+      <tr>
+             <td algin ="left">Reserva</td>
+             <td algin ="left">Item</td>
+             <td algin ="center">Quantidade</td>
+             <td algin ="left">Status</td>
+      </tr>
+    <tr>
+      <% @cautelaacessorios.each do |cautelaacessorios| %>
+      <tr>
+        <td algin ="left"><%=cautelaacessorios.cautela.reserva.sigla.squeeze(' ').strip %></td>
+        <td algin ="left"><%=cautelaacessorios.reservaacessorio.acessorio.descricao %></td>
+        <td algin ="center"><%= cautelaacessorios.qtd_acessorio %>    </td>
+        <%if cautelaacessorios.baixa == true %>
+            <td algin ="left">   Baixado</td>
+         <%else%>
+              <td> Não Baixado</td>
+        <%end%>
+      </tr>
+      <% end %>
+    </tr>
+    <tr><td colspan="4" algin ="left"><b>MUNIÇÃO</b></td></tr>
+     <% @cautelamunicaos.each do |cautelamunicaos| %>
+      <tr>
+        <td algin ="left"><%=cautelamunicaos.cautela.reserva.sigla.strip %></td>
+        <tdalgin ="left"><%=cautelamunicaos.reservamunicao.municao.descricao %></td>
+        <td algin ="center"><%= cautelamunicaos.qtd_municao %>    </td>
+        <%if cautelamunicaos.baixa == true %>
+            <td algin ="left">   Baixado</td>
+        <%else%>
+              <td> Não Baixado</td>
+        <%end%>
+      </tr>
+      <% end %>
+     <tr><td colspan="4"  algin ="left"><b>ARMAMENTO</b></td></tr>
+       <% @cautelaarmamentos.each do |cautelaarmamentos| %>
+           <tr>
+            <td><%=cautelaarmamentos.cautela.reserva.sigla %></td>
+            <td><%=cautelaarmamentos.reservaarmamento.armamento.modelo %></td>
+            <td><%=cautelaarmamentos.qtd_armamento %>    </td>
+            <%if cautelaarmamentos.baixa == true %>
+                <td>   Baixado</td>
+            <%else%>
+                  <td> Não Baixado</td>
+            <%end%>
+           </tr>
+      <% end %>
+     </tr> 
+
+     <table>
+     <br /> <br />
+     <tr>
+       <td align="center">____________________________________________________________________________________</td>
+     </tr>
+     <tr>
+       <td align="center"><%= @cautelas.militar.nome%></td>
+     </tr>  
+     </table>
+  
+
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>  
+      
+
+     

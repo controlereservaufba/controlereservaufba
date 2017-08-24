@@ -87,6 +87,24 @@ class CautelasController < ApplicationController
       end
     end
   end
+  
+  
+  
+  def comprovante
+    @cautelas  = Cautela.find(params[:id])
+    @cautelaacessorios = Cautelaacessorio.where(cautela_id: params[:id]).all
+    @cautelamunicaos = Cautelamunicao.where(cautela_id: params[:id]).all
+    @cautelaarmamentos = Cautelaarmamento.where(cautela_id: params[:id]).all
+    respond_to do |format|
+      format.html
+
+      format.pdf { render pdf: "",
+        footer: { center: "[page] of [topage]" }
+      }
+      
+    end     
+  end
+  
 
   # POST /cautelas
   # POST /cautelas.json
@@ -117,6 +135,7 @@ class CautelasController < ApplicationController
       end
     end
   end
+
 
   # DELETE /cautelas/1
   # DELETE /cautelas/1.json

@@ -54,6 +54,7 @@ Rails.application.routes.draw do
  resources :cautelas do
      member do
        get 'finalizar'=> 'cautelas#finalizar'
+       get 'comprovante'=> 'cautelas#comprovante'
     end
  end
 

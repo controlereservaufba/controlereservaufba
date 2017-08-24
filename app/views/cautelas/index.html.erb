@@ -32,6 +32,7 @@
                  <a class="btn btn-success btn-xs"<%= link_to 'Munição', {:controller => "cautelamunicaos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
                  <a class="btn btn-success btn-xs"<%= link_to 'Armamento', {:controller => "cautelaarmamentos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
                  <%= link_to 'Finalizar', finalizar_cautela_path(cautela), class: 'btn btn-primary btn-xs' %>
+                 <%= link_to 'Comprovante', comprovante_cautela_path(cautela,format: :pdf), target: '_blank', class: 'btn btn-default btn-xs' %>
               <% end %>
              <% end %>  
             </td>
