@@ -26,7 +26,7 @@
             
              <%= link_to 'Visualizar', cautela, class: 'btn btn-info btn-xs' %>
              <%if can? :admin_reserva, Cautela%> 
-              <% if  cautela.status=="t" && cautela.data_fim_cautela.nil? %>
+              <% if  cautela.status==true && cautela.data_fim_cautela.nil? %>
                  <%= link_to 'Editar', edit_cautela_path(cautela), class: 'btn btn-warning btn-xs' %>
                  <a class="btn btn-success btn-xs"<%= link_to 'Acessórios', {:controller => "cautelaacessorios", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
                  <a class="btn btn-success btn-xs"<%= link_to 'Munição', {:controller => "cautelamunicaos", :action => "index", :reserva_id => cautela.reserva_id,:cautela_id => cautela.id}%> </a>
