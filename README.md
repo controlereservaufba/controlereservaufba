@@ -3,7 +3,7 @@
 - Link para app do projeto: http://controlereservaufba.herokuapp.com
 
 [![Build Status](https://travis-ci.org/controlereservaufba/controlereservaufba.svg?branch=master)](https://travis-ci.org/controlereservaufba/controlereservaufba)
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/controlereservaufba/controlereservaufba)
 
  - [Apresentação](#apresentacao)
  - [Objetivos](#objetivos)
