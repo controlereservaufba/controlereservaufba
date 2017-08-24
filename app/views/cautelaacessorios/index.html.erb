@@ -11,7 +11,6 @@
               <th>Acessório</th>
              <th>Qtd. Item</th>
              <th>Qtd. Item Baixado</th>
-             <th>Data Baixa</th>
              <th>Status</th>
             <th colspan="2"></th>
     </tr>
@@ -24,7 +23,6 @@
         <td><%= cautelaacessorio.reservaacessorio.acessorio.descricao %></td>
         <td><%= cautelaacessorio.qtd_acessorio %></td>
         <td><%= cautelaacessorio.qtd_acessorio_baixa %></td>
-        <td><%= formato_data(cautelaacessorio.data_baixa) %></td>
         <%if cautelaacessorio.baixa == true %>
             <td>   Baixado</td>
         <%else%>

@@ -24,10 +24,12 @@
      <td><%= form.label :Quantidade %></td>
      <td class="col-md-9" width="100" ><%= form.number_field :qtd_municao, id: :cautelamunicao_qtd_municao %></td>
     <tr><td><br></td></tr>
+    <%if params[:baixar] %>
     <tr>
      <td><%= form.label :qtd_municao_baixado,"Qtd. Munição Baixa" %></td>
      <td class="col-md-9" width="100" ><%= form.number_field :qtd_municao_baixado, id: :cautelamunicao_qtd_municao_baixado %></td>
     <tr><td><br></td></tr>
+    <%end%>
    
 </table>
   

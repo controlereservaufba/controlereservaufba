@@ -42,7 +42,7 @@
      <% @cautelamunicaos.each do |cautelamunicaos| %>
       <tr>
         <td algin ="left"><%=cautelamunicaos.cautela.reserva.sigla.strip %></td>
-        <tdalgin ="left"><%=cautelamunicaos.reservamunicao.municao.descricao %></td>
+        <td algin ="left"><%=cautelamunicaos.reservamunicao.municao.descricao %></td>
         <td algin ="center"><%= cautelamunicaos.qtd_municao %>    </td>
         <%if cautelamunicaos.baixa == true %>
             <td algin ="left">   Baixado</td>

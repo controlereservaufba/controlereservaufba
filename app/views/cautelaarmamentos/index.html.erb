@@ -11,7 +11,6 @@
       <th>Armamento</th>
       <th>Qtd. Item</th>
       <th>Qtd. Item Baixado</th>
-      <th>Data Baixa</th>
       <th>Status</th>
       <th colspan="2"></th>
     </tr>
@@ -24,7 +23,6 @@
           <td><%= cautelaarmamento.reservaarmamento.armamento.modelo+" - "+cautelaarmamento.reservaarmamento.serie %></td>
           <td><%= cautelaarmamento.qtd_armamento %></td>
           <td><%= cautelaarmamento.qtd_armamento_baixa %></td>
-          <td><%= formato_data(cautelaarmamento.data_baixa) %></td>
           <%if cautelaarmamento.baixa == true %>
             <td>   Baixado</td>
          <%else%>

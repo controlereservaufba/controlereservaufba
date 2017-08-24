@@ -11,7 +11,6 @@
               <th>Munição</th>
              <th>Qtd. Item</th>
              <th>Qtd. Item Baixado</th>
-             <th>Data Baixa</th>
              <th>Status</th>
             <th colspan="2"></th>
     </tr>
@@ -24,7 +23,6 @@
         <td><%= cautelamunicao.reservamunicao.municao.descricao %></td>
         <td><%= cautelamunicao.qtd_municao%></td>
         <td><%= cautelamunicao.qtd_municao_baixado %></td>
-        <td><%= formato_data(cautelamunicao.data_baixa) %></td>
         <%if cautelamunicao.baixa == true %>
             <td>   Baixado</td>
         <%else%>
